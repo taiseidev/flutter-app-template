@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   supabase_flutter: ^1.10.25
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
   envied: ^0.5.2
   logger: ^2.0.2+1
   flutter_riverpod: ^2.4.6
