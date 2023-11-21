@@ -1,0 +1,7 @@
+{
+    "hello": "Hello $name",
+    "login": {
+        "success": "Logged in successfully",
+        "fail": "Logged in failed"
+    }
+}

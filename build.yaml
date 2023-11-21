@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: ja
+          output_format: single_file
+          flutter_integration: true
+          translate_var: i18n

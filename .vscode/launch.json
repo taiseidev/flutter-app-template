@@ -1,0 +1,65 @@
+{
+                    "version": "0.2.0",
+                    "configurations": [
+                                        {
+                                                            "name": "devDebug",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "debug",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/dev.json"
+                                                            ]
+                                        },
+                                        {
+                                                            "name": "stgDebug",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "debug",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/stg.json"
+                                                            ]
+                                        },
+                                        {
+                                                            "name": "prodDebug",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "debug",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/prod.json"
+                                                            ]
+                                        },
+                                        {
+                                                            "name": "devRelease",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "release",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/dev.json"
+                                                            ]
+                                        },
+                                        {
+                                                            "name": "stgRelease",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "release",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/stg.json"
+                                                            ]
+                                        },
+                                        {
+                                                            "name": "prodRelease",
+                                                            "request": "launch",
+                                                            "type": "dart",
+                                                            "flutterMode": "release",
+                                                            "preLaunchTask": "make",
+                                                            "args": [
+                                                                                "--dart-define-from-file=dart_defines/prod.json"
+                                                            ]
+                                        }
+                    ]
+}

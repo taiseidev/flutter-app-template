@@ -1,0 +1,6 @@
+{
+    "flavor": "dev",
+    "appName": "Nost Dev",
+    "appId": "com.nost.nost",
+    "appIdSuffix": ".dev"
+}
