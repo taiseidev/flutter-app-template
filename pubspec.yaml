@@ -13,7 +13,7 @@ dependencies:
   flutter_localizations: # add this
     sdk: flutter
   cupertino_icons: ^1.0.2
-  supabase_flutter: ^1.10.25
+  supabase_flutter: ^2.0.2
   package_info_plus: ^4.2.0
   envied: ^0.5.2
   logger: ^2.0.2+1
