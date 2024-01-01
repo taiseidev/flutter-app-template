@@ -29,7 +29,7 @@ dependencies:
   flutter_hooks: ^0.20.3
   equatable: ^2.0.5
   path_provider: ^2.1.1
-  flutter_inappwebview: ^5.8.0
+  flutter_inappwebview: ^6.0.0
   url_launcher: ^6.2.1
   image_picker: ^1.0.4
   flutter_svg: ^2.0.9
