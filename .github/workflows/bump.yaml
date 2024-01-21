@@ -53,7 +53,7 @@ jobs:
       - name: commit and push pubspec.yaml
         run: |
           git add -u pubspec.yaml
-          echo "Bumped version number to $BUMP_VERSION" | git commit --file=-
+          echo "🔖 version: $BUMP_VERSION" | git commit --file=-
           git push
 
       - name: create tag and release note
