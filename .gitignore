@@ -142,3 +142,6 @@ linux/
 macos/
 web/
 windows/
+
+# FVM
+.fvm/flutter_sdk
