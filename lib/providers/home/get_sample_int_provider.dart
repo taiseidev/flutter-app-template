@@ -1,0 +1,9 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'get_sample_int_provider.g.dart';
+
+@riverpod
+Future<int> getSampleInt(GetSampleIntRef ref) async {
+  await Future.delayed(const Duration(seconds: 3));
+  return 1;
+}
