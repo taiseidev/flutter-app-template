@@ -20,7 +20,7 @@ final getSampleIntProvider = AutoDisposeFutureProvider<int>.internal(
 );
 
 typedef GetSampleIntRef = AutoDisposeFutureProviderRef<int>;
-String _$getSampleInt2Hash() => r'615587a3e7471ccf8a5df9b022caca0293eac3b0';
+String _$getSampleInt2Hash() => r'c4b35111e359e65fb3d012057b0e58828ba0f9f2';
 
 /// See also [getSampleInt2].
 @ProviderFor(getSampleInt2)

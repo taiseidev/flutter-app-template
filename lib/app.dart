@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'presentation/home/home_page.dart';
 import 'providers/loading_notifier.dart';
 
 final scaffoldMessengerKeyProvider = Provider(
@@ -17,10 +17,10 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
-      home: const HomePage(),
+    final router = ref.watch(goRouterProvider);
+    return MaterialApp.router(
+      routerConfig: router,
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
-      navigatorKey: ref.watch(navigatorKeyProvider),
       builder: (context, child) {
         final isLoading = ref.watch(loadingNotifierProvider);
         return Stack(
