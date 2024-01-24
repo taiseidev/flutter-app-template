@@ -92,7 +92,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
                 ),
                 stringArg2: '引数',
               ).go(context),
-              child: const Text('FourthPageへ（ThirdPageの必須引数なし）'),
+              child: const Text('FourthPageへ（ThirdPageの必須引数あり）'),
             ),
           ],
         ),

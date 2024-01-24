@@ -7,11 +7,14 @@ import '../go_router_sample/fourth_go_router_sample_page.dart';
 import '../go_router_sample/second_go_router_sample_page.dart';
 import '../go_router_sample/third_go_router_sample_page.dart';
 import '../home/home_page.dart';
+import 'extra_codec.dart';
 
 part 'router.g.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) => GoRouter(
+      extraCodec: const ExtraCodec(),
+      debugLogDiagnostics: true,
       initialLocation: '/first-go-router-sample',
       routes: $appRoutes,
     );
@@ -150,5 +153,6 @@ class FourthGoRouterSampleRoute extends GoRouteData {
               name: '',
               index: 0,
             ),
+        stringArg2: stringArg2 ?? '',
       );
 }
