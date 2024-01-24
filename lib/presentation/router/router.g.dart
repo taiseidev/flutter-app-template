@@ -64,6 +64,12 @@ RouteBase get $secondGoRouterSampleRoute => GoRouteData.$route(
         GoRouteData.$route(
           path: 'third-go-router-sample',
           factory: $ThirdGoRouterSampleRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'fourth-go-router-sample',
+              factory: $FourthGoRouterSampleRouteExtension._fromState,
+            ),
+          ],
         ),
       ],
     );
@@ -133,6 +139,46 @@ extension $ThirdGoRouterSampleRouteExtension on ThirdGoRouterSampleRoute {
           if (boolArg != null) 'bool-arg': boolArg!.toString(),
           if (enumArg != null) 'enum-arg': _$SampleEnumEnumMap[enumArg!],
           'string-arg2': stringArg2,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+extension $FourthGoRouterSampleRouteExtension on FourthGoRouterSampleRoute {
+  static FourthGoRouterSampleRoute _fromState(GoRouterState state) =>
+      FourthGoRouterSampleRoute(
+        stringArg: state.uri.queryParameters['string-arg'],
+        intArg:
+            _$convertMapValue('int-arg', state.uri.queryParameters, int.parse),
+        doubleArg: _$convertMapValue(
+            'double-arg', state.uri.queryParameters, double.parse),
+        boolArg: _$convertMapValue(
+            'bool-arg', state.uri.queryParameters, _$boolConverter),
+        enumArg: _$convertMapValue('enum-arg', state.uri.queryParameters,
+            _$SampleEnumEnumMap._$fromName),
+        stringArg2: state.uri.queryParameters['string-arg2'],
+        $extra: state.extra as CustomClassForGoRouterSample?,
+      );
+
+  String get location => GoRouteData.$location(
+        '/second-go-router-sample/third-go-router-sample/fourth-go-router-sample',
+        queryParams: {
+          if (stringArg != null) 'string-arg': stringArg,
+          if (intArg != null) 'int-arg': intArg!.toString(),
+          if (doubleArg != null) 'double-arg': doubleArg!.toString(),
+          if (boolArg != null) 'bool-arg': boolArg!.toString(),
+          if (enumArg != null) 'enum-arg': _$SampleEnumEnumMap[enumArg!],
+          if (stringArg2 != null) 'string-arg2': stringArg2,
         },
       );
 

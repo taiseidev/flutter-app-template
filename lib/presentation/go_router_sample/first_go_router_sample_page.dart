@@ -49,7 +49,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
               child: const Text('ThirdPageへ（引数なし）'),
             ),
             ElevatedButton(
-              ///
+              /// SecondPageにない引数（stringArg2）を渡すことが可能
               onPressed: () => const ThirdGoRouterSampleRoute(
                 stringArg: 'テスト',
                 intArg: 1,
@@ -63,6 +63,36 @@ class FirstGoRouterSamplePage extends StatelessWidget {
                 stringArg2: 'SecondPageにはない引数',
               ).go(context),
               child: const Text('ThirdPageへ（引数あり）'),
+            ),
+            ElevatedButton(
+              /// ThirdPageで必須のstringArg2を渡していないのでエラーになる
+              onPressed: () => const FourthGoRouterSampleRoute(
+                stringArg: 'テスト',
+                intArg: 1,
+                doubleArg: 1.0,
+                boolArg: true,
+                enumArg: SampleEnum.enum1,
+                $extra: CustomClassForGoRouterSample(
+                  name: 'サンプル',
+                  index: 1,
+                ),
+              ).go(context),
+              child: const Text('FourthPageへ（ThirdPageの必須引数なし）'),
+            ),
+            ElevatedButton(
+              onPressed: () => const FourthGoRouterSampleRoute(
+                stringArg: 'テスト',
+                intArg: 1,
+                doubleArg: 1.0,
+                boolArg: true,
+                enumArg: SampleEnum.enum1,
+                $extra: CustomClassForGoRouterSample(
+                  name: 'サンプル',
+                  index: 1,
+                ),
+                stringArg2: '引数',
+              ).go(context),
+              child: const Text('FourthPageへ（ThirdPageの必須引数なし）'),
             ),
           ],
         ),
