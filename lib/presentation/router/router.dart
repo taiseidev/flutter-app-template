@@ -72,15 +72,16 @@ class SecondGoRouterSampleRoute extends GoRouteData {
   final CustomClassForGoRouterSample $extra;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      SecondGoRouterSamplePage(
-        stringArg: stringArg,
-        intArg: intArg,
-        doubleArg: doubleArg,
-        boolArg: boolArg,
-        enumArg: enumArg,
-        customArg: $extra,
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    return SecondGoRouterSamplePage(
+      stringArg: stringArg,
+      intArg: intArg,
+      doubleArg: doubleArg,
+      boolArg: boolArg,
+      enumArg: enumArg,
+      customArg: $extra,
+    );
+  }
 }
 
 class ThirdGoRouterSampleRoute extends GoRouteData {
@@ -122,14 +123,15 @@ class ThirdGoRouterSampleRoute extends GoRouteData {
 }
 
 class FourthGoRouterSampleRoute extends GoRouteData {
-  const FourthGoRouterSampleRoute(
-      {this.stringArg,
-      this.intArg,
-      this.doubleArg,
-      this.boolArg,
-      this.enumArg,
-      this.$extra,
-      this.stringArg2});
+  const FourthGoRouterSampleRoute({
+    this.stringArg,
+    this.intArg,
+    this.doubleArg,
+    this.boolArg,
+    this.enumArg,
+    this.$extra,
+    this.stringArg2,
+  });
 
   final String? stringArg;
   final int? intArg;
@@ -141,18 +143,20 @@ class FourthGoRouterSampleRoute extends GoRouteData {
   final String? stringArg2;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      FourthGoRouterSamplePage(
-        stringArg: stringArg ?? '',
-        intArg: intArg ?? 0,
-        doubleArg: doubleArg ?? 0.0,
-        boolArg: boolArg ?? false,
-        enumArg: enumArg ?? SampleEnum.enum2,
-        customArg: $extra ??
-            const CustomClassForGoRouterSample(
-              name: '',
-              index: 0,
-            ),
-        stringArg2: stringArg2 ?? '',
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    final parameters = state.uri.queryParametersAll;
+    return FourthGoRouterSamplePage(
+      stringArg: parameters['string-arg']![0],
+      intArg: intArg ?? 0,
+      doubleArg: doubleArg ?? 0.0,
+      boolArg: boolArg ?? false,
+      enumArg: enumArg ?? SampleEnum.enum2,
+      customArg: $extra ??
+          const CustomClassForGoRouterSample(
+            name: '',
+            index: 0,
+          ),
+      stringArg2: stringArg2 ?? '',
+    );
+  }
 }

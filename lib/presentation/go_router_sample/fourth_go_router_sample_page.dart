@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/presentation/router/router.dart';
+import 'package:go_router/go_router.dart';
 
 import 'first_go_router_sample_page.dart';
 
@@ -54,6 +55,14 @@ class FourthGoRouterSamplePage extends StatelessWidget {
                 stringArg2: stringArg2,
               ).go(context),
               child: const Text('ThirdPageに戻る（popとの違いチェック）'),
+            ),
+            ElevatedButton(
+              onPressed: () => context.pop(),
+              child: const Text('popを使用'),
+            ),
+            ElevatedButton(
+              onPressed: () => const FirstGoRouterSampleRoute().go(context),
+              child: const Text('FirstPageに遷移'),
             ),
           ],
         ),
