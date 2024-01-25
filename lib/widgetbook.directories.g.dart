@@ -9,7 +9,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter_app_template/presentation/cookbook/basics/basic_text.dart'
+import 'package:flutter_app_template/presentation/cookbook/basics/text/gradient_text_component.dart'
     as _i2;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 
@@ -23,12 +23,17 @@ final directories = <_i1.WidgetbookNode>[
           _i1.WidgetbookFolder(
             name: 'basics',
             children: [
-              _i1.WidgetbookLeafComponent(
-                name: 'BasicText',
-                useCase: _i1.WidgetbookUseCase(
-                  name: 'with green color',
-                  builder: _i2.basicTextUseCase,
-                ),
+              _i1.WidgetbookFolder(
+                name: 'text',
+                children: [
+                  _i1.WidgetbookLeafComponent(
+                    name: 'GradientTextComponent',
+                    useCase: _i1.WidgetbookUseCase(
+                      name: 'with green color',
+                      builder: _i2.basicTextUseCase,
+                    ),
+                  )
+                ],
               )
             ],
           )
