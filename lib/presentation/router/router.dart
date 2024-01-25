@@ -15,7 +15,7 @@ part 'router.g.dart';
 GoRouter goRouter(GoRouterRef ref) => GoRouter(
       extraCodec: const ExtraCodec(),
       debugLogDiagnostics: true,
-      initialLocation: '/first-go-router-sample',
+      initialLocation: '/',
       routes: $appRoutes,
     );
 

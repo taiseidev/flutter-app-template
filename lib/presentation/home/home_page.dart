@@ -6,6 +6,8 @@ import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
 
+import '../cookbook/basics/basic_text.dart';
+
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
@@ -38,6 +40,9 @@ class HomePage extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const BasicText(
+            text: '',
+          ),
           asyncValue.handleAsyncValue(
             (value) => Center(
               child: Column(
