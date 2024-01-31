@@ -1,19 +1,39 @@
+import 'dart:typed_data';
+
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerService {
   ImagePickerService._();
 
-  static final _instance = ImagePickerService._();
+  static final ImagePicker _picker = ImagePicker();
 
-  static ImagePickerService get instance => _instance;
+  static const int bytesPerMB = 1024 * 1024;
 
-  final ImagePicker _picker = ImagePicker();
+  static String imageSizeDebugMessage(double size, [int fractionDigits = 2]) =>
+      '${size.toStringAsFixed(fractionDigits)} MB';
 
-  Future<XFile?> pickImageFromGallery() async {
+  static Future<XFile?> pickImageFromGallery() async {
     return await _picker.pickImage(source: ImageSource.gallery);
   }
 
-  Future<XFile?> takePictureFromCamera() async {
+  static Future<XFile?> takePictureFromCamera() async {
     return await _picker.pickImage(source: ImageSource.camera);
+  }
+
+  // 画像ファイルのサイズをメガバイト単位で取得するメソッド
+  static Future<double> getImageSizeInMB(XFile file) async {
+    // ファイルサイズをバイト単位で取得
+    final bytes = await file.length();
+    // バイトからメガバイトに変換
+    return bytes / bytesPerMB;
+  }
+
+  // 画像ファイルのサイズをメガバイト単位で取得するメソッド
+  static Future<double> getImageSizeInMBForByte(Uint8List byte) async {
+    Uint8List data = Uint8List.fromList(byte);
+
+    int bytes = data.lengthInBytes;
+
+    return bytes / bytesPerMB;
   }
 }
