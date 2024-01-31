@@ -17,6 +17,7 @@ dependencies:
   go_router: ^13.0.1
   widgetbook: ^3.7.1
   widgetbook_annotation: ^3.1.0
+  image_picker: ^1.0.7
 
 dev_dependencies:
   flutter_test:

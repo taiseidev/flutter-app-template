@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/application/services/image/image_picker_service.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
 import 'package:flutter_app_template/presentation/home/home_controller.dart';
 import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncValue = ref.watch(getSampleIntProvider);
     final asyncValue2 = ref.watch(getSampleInt2Provider);
+
+    final isUnTappable = useState(false);
 
     ref.handleAsyncValue<void>(
       homeControllerProvider,
@@ -38,6 +42,26 @@ class HomePage extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          ElevatedButton(
+            onPressed: isUnTappable.value
+                ? null
+                : () async {
+                    final result = await ImagePickerService.instance
+                        .takePictureFromCamera();
+                    print(result);
+                  },
+            child: const Text('カメラで取得'),
+          ),
+          ElevatedButton(
+            onPressed: isUnTappable.value
+                ? null
+                : () async {
+                    final result = await ImagePickerService.instance
+                        .pickImageFromGallery();
+                    print(result);
+                  },
+            child: const Text('ギャラリーから取得'),
+          ),
           asyncValue.handleAsyncValue(
             (value) => Center(
               child: Column(
