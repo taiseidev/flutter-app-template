@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/app.dart';
 import 'package:flutter_app_template/presentation/go_router_sample/first_go_router_sample_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -13,6 +14,7 @@ part 'router.g.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) => GoRouter(
+      navigatorKey: ref.watch(navigatorKeyProvider),
       extraCodec: const ExtraCodec(),
       debugLogDiagnostics: true,
       initialLocation: '/',

@@ -223,7 +223,7 @@ T? _$convertMapValue<T>(
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterHash() => r'969d5f2820fd2d9631dced448202a17bc970cfa7';
+String _$goRouterHash() => r'4f5e2f11e6b6779bbb12a92b0392102966853cd1';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)
