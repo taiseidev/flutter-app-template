@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:exif/exif.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:path/path.dart' as p;
@@ -18,6 +19,8 @@ class ImageSamplePage extends HookWidget {
     final notCompressImageSize = useState<double?>(null);
     final compressImageSize = useState<double?>(null);
     final imageQuality = useState<double>(1.0);
+
+    final imageBySelectingGallery = useState<File?>(null);
 
     return Scaffold(
       body: Center(
@@ -82,6 +85,63 @@ class ImageSamplePage extends HookWidget {
                 },
                 child: const Text('カメラで取得'),
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  // ギャラリーから画像を取得
+                  final result =
+                      await ImagePickerService.pickImageFromGallery();
+
+                  if (result != null) {
+                    imageBySelectingGallery.value = File(result.path);
+
+                    // Exifパッケージで画像のメタデータを取得
+                    final fileBytes = File(result.path).readAsBytesSync();
+                    final data = await readExifFromBytes(fileBytes);
+
+                    if (data.isEmpty) {
+                      debugPrint("No EXIF information found");
+                      return;
+                    }
+                    debugPrint('📷📷📷📷📷📷');
+                    // Exifデータを表示用のリストに格納
+                    List<String> exifDetails = [];
+                    for (final entry in data.entries) {
+                      debugPrint("${entry.key}: ${entry.value}");
+                      exifDetails.add(
+                          "${entry.key}: ${entry.value}"); // ここでExif情報をリストに追加
+                    }
+                    debugPrint('📷📷📷📷📷📷');
+
+                    // Exif情報を画面に表示するためのダイアログを表示
+                    if (context.mounted) {
+                      showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Exif Information"),
+                            content: SingleChildScrollView(
+                              child: ListBody(
+                                children: exifDetails
+                                    .map((detail) => Text(detail))
+                                    .toList(),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text('Close'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  }
+                },
+                child: const Text('ギャラリーから取得'),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -114,6 +174,23 @@ class ImageSamplePage extends HookWidget {
                   borderRadius: BorderRadius.circular(100),
                   child: Image.memory(
                     compressedImage.value!,
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              const SizedBox(height: 24),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('取得した画像の詳細表示'),
+                ],
+              ),
+              if (imageBySelectingGallery.value != null)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.file(
+                    imageBySelectingGallery.value!,
                     width: 200,
                     height: 200,
                     fit: BoxFit.cover,
