@@ -1,17 +1,11 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/application/services/image/image_compress_service.dart';
-import 'package:flutter_app_template/application/services/image/image_picker_service.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
 import 'package:flutter_app_template/presentation/home/home_controller.dart';
+import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
-import 'package:path/path.dart' as p;
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -28,9 +22,6 @@ class HomePage extends HookConsumerWidget {
         debugPrint('完了');
       },
     );
-
-    final notCompressFile = useState<File?>(null);
-    final compressFile = useState<Uint8List?>(null);
 
     return Scaffold(
       appBar: AppBar(
@@ -50,43 +41,9 @@ class HomePage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () async {
-                final result = await ImagePickerService.takePictureFromCamera();
-
-                if (result != null) {
-                  final size =
-                      await ImagePickerService.getImageSizeInMB(result);
-
-                  notCompressFile.value = File(result.path);
-
-                  debugPrint(ImagePickerService.imageSizeDebugMessage(size));
-
-                  final filePath = result.path;
-                  final ext = p.extension(filePath);
-                  debugPrint('拡張子 $ext');
-
-                  final byte = await ImageCompressService()
-                      .compressWithFile(result.path);
-
-                  if (byte != null) {
-                    compressFile.value = byte;
-                  }
-                }
-              },
-              child: const Text('カメラで取得'),
+              onPressed: () => const ImageSampleRoute().go(context),
+              child: const Text('画像サンプル画面に遷移'),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                final result = await ImagePickerService.pickImageFromGallery();
-                if (result != null) {
-                  notCompressFile.value = File(result.path);
-                }
-              },
-              child: const Text('ギャラリーから取得'),
-            ),
-            if (notCompressFile.value != null)
-              Image.file(notCompressFile.value!),
-            if (compressFile.value != null) Image.memory(compressFile.value!),
             asyncValue.handleAsyncValue(
               (value) => Center(
                 child: Column(

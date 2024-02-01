@@ -8,6 +8,7 @@ part of 'router.dart';
 
 List<RouteBase> get $appRoutes => [
       $homeRoute,
+      $imageSampleRoute,
       $firstGoRouterSampleRoute,
       $secondGoRouterSampleRoute,
     ];
@@ -22,6 +23,29 @@ extension $HomeRouteExtension on HomeRoute {
 
   String get location => GoRouteData.$location(
         '/',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $imageSampleRoute => GoRouteData.$route(
+      path: '/image-sample',
+      factory: $ImageSampleRouteExtension._fromState,
+    );
+
+extension $ImageSampleRouteExtension on ImageSampleRoute {
+  static ImageSampleRoute _fromState(GoRouterState state) =>
+      const ImageSampleRoute();
+
+  String get location => GoRouteData.$location(
+        '/image-sample',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -10,14 +10,19 @@ class ImageCompressService {
     return _instance;
   }
 
-  Future<Uint8List?> compressWithFile(String path) async {
+  Future<Uint8List?> compressWithFile(
+    String path, {
+    int minWidth = 1920,
+    int minHeight = 1080,
+    int quality = 95,
+  }) async {
     late Uint8List? byte;
     try {
       byte = await FlutterImageCompress.compressWithFile(
         path,
-        minWidth: 1920,
-        minHeight: 1080,
-        quality: 80,
+        minWidth: minWidth,
+        minHeight: minHeight,
+        quality: quality,
       );
     } on Exception catch (e) {
       debugPrint(e.toString());
