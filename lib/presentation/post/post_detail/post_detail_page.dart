@@ -21,8 +21,27 @@ class PostDetailPage extends ConsumerWidget {
       body: detail.handleAsyncValue(
         (value) => Column(
           children: [
-            Text(value.title),
-            Text(value.body),
+            Text(value.$1.title),
+            Text(value.$1.body),
+            Expanded(
+              child: ListView.builder(
+                itemCount: value.$2.length,
+                itemBuilder: (context, index) {
+                  final comment = value.$2[index];
+                  return Card(
+                    child: ListTile(
+                      title: Text(comment.name),
+                      subtitle: Column(
+                        children: [
+                          Text(comment.email),
+                          Text(comment.body),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

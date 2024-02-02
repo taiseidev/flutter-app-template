@@ -7,7 +7,7 @@ part of 'post_detail_page_controller.dart';
 // **************************************************************************
 
 String _$postDetailPageControllerHash() =>
-    r'2cb341bc7411cb60f38dc62e211cd8368375a210';
+    r'4279b95bd73c79320f4f1ba5a1ea16218f7583d6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,8 @@ class _SystemHash {
 const postDetailPageControllerProvider = PostDetailPageControllerFamily();
 
 /// See also [postDetailPageController].
-class PostDetailPageControllerFamily extends Family<AsyncValue<Post>> {
+class PostDetailPageControllerFamily
+    extends Family<AsyncValue<(Post, List<Comment>)>> {
   /// See also [postDetailPageController].
   const PostDetailPageControllerFamily();
 
@@ -73,7 +74,8 @@ class PostDetailPageControllerFamily extends Family<AsyncValue<Post>> {
 }
 
 /// See also [postDetailPageController].
-class PostDetailPageControllerProvider extends AutoDisposeFutureProvider<Post> {
+class PostDetailPageControllerProvider
+    extends AutoDisposeFutureProvider<(Post, List<Comment>)> {
   /// See also [postDetailPageController].
   PostDetailPageControllerProvider(
     int postId,
@@ -108,7 +110,9 @@ class PostDetailPageControllerProvider extends AutoDisposeFutureProvider<Post> {
 
   @override
   Override overrideWith(
-    FutureOr<Post> Function(PostDetailPageControllerRef provider) create,
+    FutureOr<(Post, List<Comment>)> Function(
+            PostDetailPageControllerRef provider)
+        create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -125,7 +129,7 @@ class PostDetailPageControllerProvider extends AutoDisposeFutureProvider<Post> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<Post> createElement() {
+  AutoDisposeFutureProviderElement<(Post, List<Comment>)> createElement() {
     return _PostDetailPageControllerProviderElement(this);
   }
 
@@ -143,13 +147,14 @@ class PostDetailPageControllerProvider extends AutoDisposeFutureProvider<Post> {
   }
 }
 
-mixin PostDetailPageControllerRef on AutoDisposeFutureProviderRef<Post> {
+mixin PostDetailPageControllerRef
+    on AutoDisposeFutureProviderRef<(Post, List<Comment>)> {
   /// The parameter `postId` of this provider.
   int get postId;
 }
 
 class _PostDetailPageControllerProviderElement
-    extends AutoDisposeFutureProviderElement<Post>
+    extends AutoDisposeFutureProviderElement<(Post, List<Comment>)>
     with PostDetailPageControllerRef {
   _PostDetailPageControllerProviderElement(super.provider);
 
