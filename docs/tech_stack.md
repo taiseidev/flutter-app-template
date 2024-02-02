@@ -1,5 +1,8 @@
 # Tech Stack
 
+## 環境分け
+・[Flutter の環境分けの新時代](https://zenn.dev/blendthink/articles/392607db0a65dd)
+
 ## FVM
 
 ・[Flutter SDKをバージョン管理できるfvmでFlutterを使う](https://zenn.dev/welchi/articles/d8f120adeebc7a85ed17)
