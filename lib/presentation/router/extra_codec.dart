@@ -1,7 +1,7 @@
 // Codec
 import 'dart:convert';
 
-import '../go_router_sample/first_go_router_sample_page.dart';
+import '../ui/go_router_sample/first_go_router_sample_page.dart';
 
 class ExtraCodec extends Codec<Object?, Object?> {
   const ExtraCodec();

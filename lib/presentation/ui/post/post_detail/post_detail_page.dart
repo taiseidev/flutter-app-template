@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
-import 'package:flutter_app_template/presentation/post/post_detail/post_detail_page_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'post_detail_page_controller.dart';
 
 class PostDetailPage extends ConsumerWidget {
   const PostDetailPage({

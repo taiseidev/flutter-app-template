@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/app.dart';
-import 'package:flutter_app_template/presentation/go_router_sample/first_go_router_sample_page.dart';
-import 'package:flutter_app_template/presentation/post/post_detail/post_detail_page.dart';
-import 'package:flutter_app_template/presentation/post/post_page.dart';
+import 'package:flutter_app_template/presentation/ui/go_router_sample/first_go_router_sample_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../go_router_sample/fourth_go_router_sample_page.dart';
-import '../go_router_sample/second_go_router_sample_page.dart';
-import '../go_router_sample/third_go_router_sample_page.dart';
-import '../home/home_page.dart';
-import '../image_sample/image_sample_page.dart';
+import '../ui/go_router_sample/fourth_go_router_sample_page.dart';
+import '../ui/go_router_sample/second_go_router_sample_page.dart';
+import '../ui/go_router_sample/third_go_router_sample_page.dart';
+import '../ui/home/home_page.dart';
+import '../ui/image_sample/image_sample_page.dart';
+import '../ui/post/post_detail/post_detail_page.dart';
+import '../ui/post/post_page.dart';
 import 'extra_codec.dart';
 
 part 'router.g.dart';

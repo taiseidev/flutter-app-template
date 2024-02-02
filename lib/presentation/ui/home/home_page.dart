@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
-import 'package:flutter_app_template/presentation/home/home_controller.dart';
 import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
+
+import 'home_controller.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});

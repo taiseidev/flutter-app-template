@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:path/path.dart' as p;
 
-import '../../application/services/image/image_compress_service.dart';
-import '../../application/services/image/image_picker_service.dart';
+import '../../../application/services/image/image_compress_service.dart';
+import '../../../application/services/image/image_picker_service.dart';
 
 class ImageSamplePage extends HookWidget {
   const ImageSamplePage({super.key});

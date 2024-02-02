@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/exceptions/app_exception.dart';
-import 'package:flutter_app_template/presentation/errors/async_error_widget.dart';
+import 'package:flutter_app_template/presentation/ui/errors/async_error_widget.dart';
 import 'package:flutter_app_template/providers/loading_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
