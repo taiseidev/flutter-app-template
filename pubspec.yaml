@@ -33,6 +33,7 @@ dependencies:
   collection: ^1.18.0 # Dartコレクションの拡張機能
   slang: ^3.29.0 # アプリ翻訳とローカライズ
   slang_flutter: ^3.29.0 # SlangのFlutterサポート
+  flutter_native_splash: ^2.3.10
   flutter_localization: ^0.2.0
   flutter_localizations:
     sdk: flutter
@@ -52,6 +53,18 @@ dev_dependencies:
   json_serializable: ^6.7.1 # JSONシリアライズのコード生成
   freezed: ^2.4.6 # Freezedのコード生成
   slang_build_runner: ^3.29.0 # Slangのコード生成
+
+flutter_native_splash:
+  color: '#add8e6'
+  image: 'assets/images/splash.png'
+  color_dark: '#262626'
+  image_dark: 'assets/images/splash.png'
+  fullscreen: true
+  android_12:
+    icon_background_color: '#add8e6'
+    image: 'assets/images/splash.png'
+    icon_background_color_dark: '#262626'
+    image_dark: 'assets/images/splash.png'
 
 flutter:
   uses-material-design: true
