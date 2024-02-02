@@ -1,3 +1,4 @@
+import 'package:flutter_app_template/data/models/request/post_detail_request.dart';
 import 'package:flutter_app_template/data/remote/api/post_api_client.dart';
 import 'package:flutter_app_template/domain/repository_interfaces/i_post_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -27,5 +28,19 @@ final class PostRepository extends IPostRepository {
           ),
         )
         .toList();
+  }
+
+  @override
+  Future<Post> fetchPostDetail(final int id) async {
+    // ここでリクエストオブジェクトに変換しているのは冗長だが、
+    // Requestオブジェクトを実装する際のイメージとして追加
+    final request = PostDetailRequest(id: id);
+    final response = await _apiClient.fetchPostDetail(request.id.toString());
+    return Post(
+      userId: response.userId,
+      id: response.id,
+      title: response.title,
+      body: response.body,
+    );
   }
 }

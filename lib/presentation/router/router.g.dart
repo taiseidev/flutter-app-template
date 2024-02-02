@@ -62,6 +62,12 @@ extension $ImageSampleRouteExtension on ImageSampleRoute {
 RouteBase get $postSampleRoute => GoRouteData.$route(
       path: '/post-sample',
       factory: $PostSampleRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'post-detail-sample',
+          factory: $PostDetailSampleRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $PostSampleRouteExtension on PostSampleRoute {
@@ -70,6 +76,29 @@ extension $PostSampleRouteExtension on PostSampleRoute {
 
   String get location => GoRouteData.$location(
         '/post-sample',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PostDetailSampleRouteExtension on PostDetailSampleRoute {
+  static PostDetailSampleRoute _fromState(GoRouterState state) =>
+      PostDetailSampleRoute(
+        postId: int.parse(state.uri.queryParameters['post-id']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/post-sample/post-detail-sample',
+        queryParams: {
+          'post-id': postId.toString(),
+        },
       );
 
   void go(BuildContext context) => context.go(location);

@@ -17,4 +17,9 @@ abstract class PostApiClient {
 
   @GET(ApiEndpoints.posts)
   Future<List<PostResponse>> fetchPosts();
+
+  @GET(ApiEndpoints.postDetail)
+  Future<PostResponse> fetchPostDetail(
+    @Path() String id,
+  );
 }

@@ -5,4 +5,5 @@ class ApiEndpoints {
 
   // post
   static const String posts = '/posts';
+  static const String postDetail = '$posts/{id}';
 }

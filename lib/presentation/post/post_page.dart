@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
 import 'package:flutter_app_template/presentation/post/post_page_controller.dart';
+import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PostPage extends ConsumerWidget {
@@ -20,6 +21,9 @@ class PostPage extends ConsumerWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('投稿一覧'),
+      ),
       body: posts.handleAsyncValue(
         (data) {
           return Scrollbar(
@@ -28,9 +32,21 @@ class PostPage extends ConsumerWidget {
               itemBuilder: (context, index) {
                 final post = data[index];
                 return Card(
-                  child: ListTile(
-                    title: Text(post.title),
-                    subtitle: Text(post.body),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Material(
+                    color: Colors.grey,
+                    clipBehavior: Clip.hardEdge,
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: InkWell(
+                      onTap: () =>
+                          PostDetailSampleRoute(postId: post.id).go(context),
+                      child: ListTile(
+                        title: Text(post.title),
+                        subtitle: Text(post.body),
+                      ),
+                    ),
                   ),
                 );
               },
