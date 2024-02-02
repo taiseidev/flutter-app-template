@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
 import 'package:flutter_app_template/presentation/router/router.dart';
+import 'package:flutter_app_template/presentation/widget/button/common_button.dart';
 import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
@@ -43,6 +44,10 @@ class HomePage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(Strings.greetingWithName('テスト')),
+            CommonButton(
+              text: 'テストボタン',
+              onPressed: () {},
+            ),
             ElevatedButton(
               onPressed: () => const ImageSampleRoute().go(context),
               child: const Text('画像サンプル画面に遷移'),

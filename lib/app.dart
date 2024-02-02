@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/data/local/secure_storage/secure_storage_instance.dart';
 import 'package:flutter_app_template/data/local/shared_preference/preference_key_type.dart';
-import 'package:flutter_app_template/presentation/res/theme.dart';
+import 'package:flutter_app_template/presentation/res/theme/theme.dart';
 import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

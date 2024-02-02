@@ -27,6 +27,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   shared_preferences: ^2.2.2
   flutter_secure_storage: ^9.0.0
+  theme_tailor: ^2.1.0
+  theme_tailor_annotation: ^2.1.0
 
 dev_dependencies:
   flutter_test:
