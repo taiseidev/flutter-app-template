@@ -19,13 +19,15 @@ extension StringExtension on String {
 
   // 文字列の最初の文字を大文字にする
   String get capitalize {
-    if (isEmpty) return this;
+    if (isEmpty) {
+      return this;
+    }
     return '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
   }
 
   // 文字列を逆順にする
   String get reverse {
-    return split('').reversed.join('');
+    return split('').reversed.join();
   }
 
   // 文字列からHTMLタグを除去する

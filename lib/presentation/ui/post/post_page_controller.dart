@@ -9,5 +9,5 @@ part 'post_page_controller.g.dart';
 class PostPageController extends _$PostPageController {
   @override
   Future<List<Post>> build() async =>
-      await ref.read(fetchPostsUsecaseProvider).execute();
+      ref.read(fetchPostsUsecaseProvider).execute();
 }

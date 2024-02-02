@@ -42,10 +42,11 @@ extension WidgetRefEx on WidgetRef {
 
               // エラーが発生したらエラーダイアログを表示する
               await showDialog<void>(
-                  context: read(navigatorKeyProvider).currentContext!,
-                  builder: (context) => AsyncErrorWidget(
-                        exception: error as AppException,
-                      ));
+                context: read(navigatorKeyProvider).currentContext!,
+                builder: (context) => AsyncErrorWidget(
+                  exception: error as AppException,
+                ),
+              );
             },
             loading: loadingNotifier.show,
           );

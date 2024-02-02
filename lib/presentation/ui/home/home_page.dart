@@ -28,7 +28,7 @@ class HomePage extends HookConsumerWidget {
       },
     );
 
-    String notification = t.settings.notification;
+    final notification = t.settings.notification;
 
     return Scaffold(
       appBar: AppBar(

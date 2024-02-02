@@ -50,7 +50,7 @@ class ImageSampleRoute extends GoRouteData {
   routes: [
     TypedGoRoute<PostDetailSampleRoute>(
       path: 'post-detail-sample',
-    )
+    ),
   ],
 )
 class PostSampleRoute extends GoRouteData {
@@ -84,16 +84,18 @@ class FirstGoRouterSampleRoute extends GoRouteData {
 }
 
 @TypedGoRoute<SecondGoRouterSampleRoute>(
-    path: '/second-go-router-sample',
-    routes: [
-      TypedGoRoute<ThirdGoRouterSampleRoute>(
-          path: 'third-go-router-sample',
-          routes: [
-            TypedGoRoute<FourthGoRouterSampleRoute>(
-              path: 'fourth-go-router-sample',
-            )
-          ])
-    ])
+  path: '/second-go-router-sample',
+  routes: [
+    TypedGoRoute<ThirdGoRouterSampleRoute>(
+      path: 'third-go-router-sample',
+      routes: [
+        TypedGoRoute<FourthGoRouterSampleRoute>(
+          path: 'fourth-go-router-sample',
+        ),
+      ],
+    ),
+  ],
+)
 class SecondGoRouterSampleRoute extends GoRouteData {
   const SecondGoRouterSampleRoute({
     required this.stringArg,

@@ -10,7 +10,7 @@ class HomeController extends _$HomeController {
   Future<void> post() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await Future.delayed(const Duration(seconds: 3));
+      await Future<void>.delayed(const Duration(seconds: 3));
     });
   }
 }

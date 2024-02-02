@@ -17,6 +17,6 @@ class FetchPostsUsecase {
   final IPostRepository _postRepository;
 
   Future<List<Post>> execute() async {
-    return executeSafely(() => _postRepository.fetchPosts());
+    return executeSafely(_postRepository.fetchPosts);
   }
 }

@@ -34,12 +34,12 @@ class PostPage extends ConsumerWidget {
                 final post = data[index];
                 return Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Material(
                     color: Colors.grey,
                     clipBehavior: Clip.hardEdge,
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     child: InkWell(
                       onTap: () =>
                           PostDetailSampleRoute(postId: post.id).go(context),

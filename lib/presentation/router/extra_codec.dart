@@ -20,7 +20,7 @@ class _Decoder extends Converter<Object?, Object?> {
     if (input == null) {
       return null;
     }
-    final List<Object?> objects = input as List<Object?>;
+    final objects = input as List<Object?>;
     // 各パラメーターの設定
     // パラメーターが増えるたびにswitch-caseを追加
     switch (objects[0]) {

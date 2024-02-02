@@ -13,11 +13,11 @@ class ImagePickerService {
       '${size.toStringAsFixed(fractionDigits)} MB';
 
   static Future<XFile?> pickImageFromGallery() async {
-    return await _picker.pickImage(source: ImageSource.gallery);
+    return _picker.pickImage(source: ImageSource.gallery);
   }
 
   static Future<XFile?> takePictureFromCamera() async {
-    return await _picker.pickImage(source: ImageSource.camera);
+    return _picker.pickImage(source: ImageSource.camera);
   }
 
   // 画像ファイルのサイズをメガバイト単位で取得するメソッド
@@ -30,9 +30,9 @@ class ImagePickerService {
 
   // 画像ファイルのサイズをメガバイト単位で取得するメソッド
   static Future<double> getImageSizeInMBForByte(Uint8List byte) async {
-    Uint8List data = Uint8List.fromList(byte);
+    final data = Uint8List.fromList(byte);
 
-    int bytes = data.lengthInBytes;
+    final bytes = data.lengthInBytes;
 
     return bytes / bytesPerMB;
   }

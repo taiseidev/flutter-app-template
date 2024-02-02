@@ -7,8 +7,6 @@ enum StorageKeyType {
 }
 
 class SecureStorageValues {
-  final String? userId;
-
   SecureStorageValues({this.userId});
 
   factory SecureStorageValues.fromMap(Map<String, String> map) {
@@ -16,6 +14,7 @@ class SecureStorageValues {
       userId: map[StorageKeyType.userId.name],
     );
   }
+  final String? userId;
 }
 
 extension StorageKeyTypeExt on StorageKeyType {

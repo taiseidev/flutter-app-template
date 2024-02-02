@@ -9,8 +9,6 @@ class GradientTextComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
-      // https://flutter.salon/widget/blendmode/
-      blendMode: BlendMode.modulate,
       shaderCallback: (Rect rect) {
         return const LinearGradient(
           colors: [

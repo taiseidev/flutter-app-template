@@ -25,21 +25,24 @@ class App extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(goRouterProvider);
 
-    useEffect(() {
-      Future(
-        () async {
-          final isFirstLaunch =
-              PreferenceKeyType.isFirstLaunch.getBool() ?? true;
-          if (isFirstLaunch) {
-            /// iOSだとkey-chainの影響でアプリを削除してもSecureStorageの値をが残るため、
-            /// アプリ初回起動時は値を全て削除する
-            await SecureStorageInstance().storage.deleteAll();
-            await PreferenceKeyType.isFirstLaunch.setBool(value: false);
-          }
-        },
-      );
-      return null;
-    }, const []);
+    useEffect(
+      () {
+        Future(
+          () async {
+            final isFirstLaunch =
+                PreferenceKeyType.isFirstLaunch.getBool() ?? true;
+            if (isFirstLaunch) {
+              /// iOSだとkey-chainの影響でアプリを削除してもSecureStorageの値をが残るため、
+              /// アプリ初回起動時は値を全て削除する
+              await SecureStorageInstance().storage.deleteAll();
+              await PreferenceKeyType.isFirstLaunch.setBool(value: false);
+            }
+          },
+        );
+        return null;
+      },
+      const [],
+    );
 
     return MaterialApp.router(
       routerConfig: router,

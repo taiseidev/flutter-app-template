@@ -18,7 +18,7 @@ class ImageSamplePage extends HookWidget {
     final compressedImage = useState<Uint8List?>(null);
     final notCompressImageSize = useState<double?>(null);
     final compressImageSize = useState<double?>(null);
-    final imageQuality = useState<double>(1.0);
+    final imageQuality = useState<double>(1);
 
     final imageBySelectingGallery = useState<File?>(null);
 
@@ -99,31 +99,30 @@ class ImageSamplePage extends HookWidget {
                     final data = await readExifFromBytes(fileBytes);
 
                     if (data.isEmpty) {
-                      debugPrint("No EXIF information found");
+                      debugPrint('No EXIF information found');
                       return;
                     }
                     debugPrint('📷📷📷📷📷📷');
                     // Exifデータを表示用のリストに格納
-                    List<String> exifDetails = [];
+                    final exifDetails = <String>[];
                     for (final entry in data.entries) {
-                      debugPrint("${entry.key}: ${entry.value}");
+                      debugPrint('${entry.key}: ${entry.value}');
                       exifDetails.add(
-                          "${entry.key}: ${entry.value}"); // ここでExif情報をリストに追加
+                        '${entry.key}: ${entry.value}',
+                      ); // ここでExif情報をリストに追加
                     }
                     debugPrint('📷📷📷📷📷📷');
 
                     // Exif情報を画面に表示するためのダイアログを表示
                     if (context.mounted) {
-                      showDialog<void>(
+                      await showDialog<void>(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text("Exif Information"),
+                            title: const Text('Exif Information'),
                             content: SingleChildScrollView(
                               child: ListBody(
-                                children: exifDetails
-                                    .map((detail) => Text(detail))
-                                    .toList(),
+                                children: exifDetails.map(Text.new).toList(),
                               ),
                             ),
                             actions: <Widget>[

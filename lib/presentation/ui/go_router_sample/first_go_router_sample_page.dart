@@ -30,7 +30,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
               onPressed: () => const SecondGoRouterSampleRoute(
                 stringArg: 'テスト',
                 intArg: 1,
-                doubleArg: 1.0,
+                doubleArg: 1,
                 boolArg: true,
                 enumArg: SampleEnum.enum1,
                 $extra: CustomClassForGoRouterSample(
@@ -53,7 +53,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
               onPressed: () => const ThirdGoRouterSampleRoute(
                 stringArg: 'テスト',
                 intArg: 1,
-                doubleArg: 1.0,
+                doubleArg: 1,
                 boolArg: true,
                 enumArg: SampleEnum.enum1,
                 $extra: CustomClassForGoRouterSample(
@@ -69,7 +69,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
               onPressed: () => const FourthGoRouterSampleRoute(
                 stringArg: 'テスト',
                 intArg: 1,
-                doubleArg: 1.0,
+                doubleArg: 1,
                 boolArg: true,
                 enumArg: SampleEnum.enum1,
                 $extra: CustomClassForGoRouterSample(
@@ -83,7 +83,7 @@ class FirstGoRouterSamplePage extends StatelessWidget {
               onPressed: () => const FourthGoRouterSampleRoute(
                 stringArg: 'テスト',
                 intArg: 1,
-                doubleArg: 1.0,
+                doubleArg: 1,
                 boolArg: true,
                 enumArg: SampleEnum.enum1,
                 $extra: CustomClassForGoRouterSample(
