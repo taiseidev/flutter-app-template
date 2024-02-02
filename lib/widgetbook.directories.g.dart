@@ -9,7 +9,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter_app_template/presentation/ui/cookbook/basics/text/gradient_text_component.dart'
+import 'package:flutter_app_template/presentation/cookbook/basics/text/gradient_text_component.dart'
     as _i2;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 

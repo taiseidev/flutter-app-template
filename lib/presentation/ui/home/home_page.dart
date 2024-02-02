@@ -6,6 +6,7 @@ import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
 
+import '../../res/strings.dart';
 import 'home_controller.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -41,6 +42,7 @@ class HomePage extends HookConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(Strings.greetingWithName('テスト')),
             ElevatedButton(
               onPressed: () => const ImageSampleRoute().go(context),
               child: const Text('画像サンプル画面に遷移'),

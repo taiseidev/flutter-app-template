@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../presentation/ui/loading/common_loading_widget.dart';
+import '../presentation/widget/loading/common_loading_widget.dart';
 
 extension AsyncValueHandler<T> on AsyncValue<T> {
   /// whenメソッドの拡張関数
