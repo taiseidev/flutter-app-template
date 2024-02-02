@@ -1,4 +1,5 @@
-Analyzing /Users/t-z/workspace/product/flutter_app_template ...
+```mermaid
+
 flowchart TB
   subgraph Arrows
     direction LR
@@ -57,3 +58,4 @@ flowchart TB
   dioProvider ==> commentApiClientProvider;
   navigatorKeyProvider ==> goRouterProvider;
   fetchPostsUsecaseProvider -.-> postPageControllerProvider;
+```
