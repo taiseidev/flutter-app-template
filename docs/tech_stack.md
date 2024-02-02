@@ -18,3 +18,6 @@
 - Github Actions
 
 [Flutter開発で使っているGitHub Actionsのワークフロー](https://zenn.dev/yorifuji/articles/flutter-github-actions-template)
+
+## Local Storage
+・[iOSでflutter_secure_storageに保存したものはアンインストールしても消えない](https://zenn.dev/beeeyan/articles/3f338941b45197)

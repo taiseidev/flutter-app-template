@@ -3,13 +3,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 enum PreferenceKeyType {
   userId,
+  isFirstLaunch,
 }
 
 extension PreferenceKeyTypeExt on PreferenceKeyType {
   SharedPreferences get _prefs => SharedPreferencesInstance().prefs;
 
   String get keyString => switch (this) {
-        PreferenceKeyType.userId => PreferenceKeyType.userId.name
+        PreferenceKeyType.userId => PreferenceKeyType.userId.name,
+        PreferenceKeyType.isFirstLaunch => PreferenceKeyType.isFirstLaunch.name
       };
 
   Future<bool> setInt(int value) async {
