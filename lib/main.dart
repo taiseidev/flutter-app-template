@@ -4,17 +4,22 @@ import 'package:flutter_app_template/data/local/shared_preference/shared_prefere
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
+import 'i18n/strings.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // Local Storageの初期化
-  SharedPreferencesInstance.initialize();
-  SecureStorageInstance.initialize();
+  await SharedPreferencesInstance.initialize();
+  await SecureStorageInstance.initialize();
+
+  // デバイスのロケールで初期化
+  LocaleSettings.useDeviceLocale();
 
   runApp(
-    const ProviderScope(
-      child: App(),
+    ProviderScope(
+      child: TranslationProvider(
+        child: const App(),
+      ),
     ),
   );
 }

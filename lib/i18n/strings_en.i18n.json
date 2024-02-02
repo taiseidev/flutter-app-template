@@ -1,0 +1,9 @@
+{
+    "greeting": "Hello!",
+    "welcomeMessage": "Welcome to our application.",
+    "settings": {
+        "language": "Language",
+        "theme": "Theme",
+        "notification": "Notifications"
+    }
+}

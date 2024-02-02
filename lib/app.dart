@@ -4,8 +4,10 @@ import 'package:flutter_app_template/data/local/shared_preference/preference_key
 import 'package:flutter_app_template/presentation/res/theme/theme.dart';
 import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'i18n/strings.g.dart';
 import 'providers/loading_notifier.dart';
 
 final scaffoldMessengerKeyProvider = Provider(
@@ -44,6 +46,9 @@ class App extends HookConsumerWidget {
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
       theme: getLightThemeData(),
       darkTheme: getDarkThemeData(),
+      locale: TranslationProvider.of(context).flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
       builder: (context, child) {
         final isLoading = ref.watch(loadingNotifierProvider);
         return Stack(

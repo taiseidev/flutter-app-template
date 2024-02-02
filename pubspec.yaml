@@ -9,43 +9,49 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_riverpod: ^2.4.9
-  riverpod_annotation: ^2.3.3
-  flutter_hooks: ^0.20.4
-  hooks_riverpod: ^2.4.9
-  multi_async_value: ^0.0.1
-  go_router: ^13.0.1
-  widgetbook: ^3.7.1
-  widgetbook_annotation: ^3.1.0
-  image_picker: ^1.0.7
-  path: ^1.8.3
-  flutter_image_compress: ^2.1.0
-  exif: ^3.3.0
-  retrofit: ^4.0.3
-  json_annotation: ^4.8.1
-  dio: ^5.4.0
-  freezed_annotation: ^2.4.1
-  shared_preferences: ^2.2.2
-  flutter_secure_storage: ^9.0.0
-  theme_tailor: ^2.1.0
-  theme_tailor_annotation: ^2.1.0
-  intl: ^0.17.0
-  collection: ^1.18.0
+  flutter_riverpod: ^2.4.9 # ステート管理
+  riverpod_annotation: ^2.3.3 # Riverpodのアノテーションサポート
+  flutter_hooks: ^0.20.4 # Flutterのライフサイクルやステート管理をHooksで扱う
+  hooks_riverpod: ^2.4.9 # Flutter HooksとRiverpodの統合
+  multi_async_value: ^0.0.1 # 非同期データの取り扱いを簡素化
+  go_router: ^13.0.1 # ナビゲーションとルーティング
+  widgetbook: ^3.7.1 # UIコンポーネントカタログ作成
+  widgetbook_annotation: ^3.1.0 # Widgetbookのアノテーションサポート
+  image_picker: ^1.0.7 # 画像選択と撮影
+  path: ^1.8.3 # ファイルパス操作
+  flutter_image_compress: ^2.1.0 # 画像圧縮
+  exif: ^3.3.0 # 画像のEXIF情報の取得
+  retrofit: ^4.0.3 # HTTPクライアント、REST APIの呼び出し
+  json_annotation: ^4.8.1 # JSONシリアライズのアノテーション
+  dio: ^5.4.0 # HTTPクライアント
+  freezed_annotation: ^2.4.1 # Freezedのアノテーションサポート
+  shared_preferences: ^2.2.2 # 軽量なデータ永続化
+  flutter_secure_storage: ^9.0.0 # セキュアストレージ
+  theme_tailor: ^2.1.0 # テーマのカスタマイズ
+  theme_tailor_annotation: ^2.1.0 # Theme Tailorのアノテーションサポート
+  intl: ^0.18.1 # 国際化とローカライズ
+  collection: ^1.18.0 # Dartコレクションの拡張機能
+  slang: ^3.29.0 # アプリ翻訳とローカライズ
+  slang_flutter: ^3.29.0 # SlangのFlutterサポート
+  flutter_localization: ^0.2.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  cider: ^0.2.5
-  riverpod_generator: ^2.3.9
-  build_runner: ^2.4.8
-  custom_lint: ^0.5.8
-  riverpod_lint: ^2.3.7
-  go_router_builder: ^2.4.1
-  widgetbook_generator: ^3.7.0
-  retrofit_generator: ^8.0.6
-  json_serializable: ^6.7.1
-  freezed: ^2.4.6
+  flutter_lints: ^2.0.0 # Flutterのリント規則
+  cider: ^0.2.5 # バージョン管理
+  riverpod_generator: ^2.3.9 # Riverpodのコード生成
+  build_runner: ^2.4.8 # Dartのソースコード生成
+  custom_lint: ^0.5.8 # カスタムリントルール
+  riverpod_lint: ^2.3.7 # Riverpodのリントルール
+  go_router_builder: ^2.4.1 # GoRouterのコード生成
+  widgetbook_generator: ^3.7.0 # Widgetbookのコード生成
+  retrofit_generator: ^8.0.6 # Retrofitのコード生成
+  json_serializable: ^6.7.1 # JSONシリアライズのコード生成
+  freezed: ^2.4.6 # Freezedのコード生成
+  slang_build_runner: ^3.29.0 # Slangのコード生成
 
 flutter:
   uses-material-design: true

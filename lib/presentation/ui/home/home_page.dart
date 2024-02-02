@@ -8,6 +8,7 @@ import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../res/strings.dart';
 import 'home_controller.dart';
 
@@ -27,6 +28,8 @@ class HomePage extends HookConsumerWidget {
       },
     );
 
+    String notification = t.settings.notification;
+
     return Scaffold(
       appBar: AppBar(
         title: MultiAsyncValue.group2(
@@ -45,6 +48,7 @@ class HomePage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(1000000.toCurrency()),
+            Text(notification),
             Text(Strings.greetingWithName('テスト')),
             CommonButton(
               text: 'テストボタン',

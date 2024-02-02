@@ -28,6 +28,11 @@
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
+		<key>CFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>ja</string>
+		</array>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>フォトライブラリを利用する理由を記載</string>
 		<key>NSCameraUsageDescription</key>

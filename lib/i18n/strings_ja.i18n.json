@@ -1,0 +1,9 @@
+{
+    "greeting": "こんにちは!",
+    "welcomeMessage": "私たちのアプリケーションへようこそ",
+    "settings": {
+        "language": "言語",
+        "theme": "テーマ",
+        "notification": "通知"
+    }
+}
