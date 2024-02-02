@@ -45,10 +45,13 @@ android {
         applicationId "com.example.flutter_app_template"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        applicationId appId
+        applicationIdSuffix appIdSuffix
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        resValue "string", "app_name", appName
     }
 
     buildTypes {

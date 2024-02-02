@@ -1,0 +1,6 @@
+{
+    "flavor": "stg",
+    "appName": "stg-Template",
+    "appId": "com.example.flutterAppTemplate",
+    "appIdSuffix": ".stg"
+}

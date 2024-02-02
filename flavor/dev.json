@@ -1,0 +1,6 @@
+{
+    "flavor": "dev",
+    "appName": "dev-Template",
+    "appId": "com.example.flutterAppTemplate",
+    "appIdSuffix": ".dev"
+}

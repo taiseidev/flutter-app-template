@@ -1,0 +1,6 @@
+{
+    "flavor": "prod",
+    "appName": "Template",
+    "appId": "com.example.flutterAppTemplate",
+    "appIdSuffix": ""
+}
