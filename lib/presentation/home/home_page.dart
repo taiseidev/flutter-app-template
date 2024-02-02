@@ -44,6 +44,10 @@ class HomePage extends HookConsumerWidget {
               onPressed: () => const ImageSampleRoute().go(context),
               child: const Text('画像サンプル画面に遷移'),
             ),
+            ElevatedButton(
+              onPressed: () => const PostSampleRoute().go(context),
+              child: const Text('投稿一覧画面に遷移'),
+            ),
             asyncValue.handleAsyncValue(
               (value) => Center(
                 child: Column(

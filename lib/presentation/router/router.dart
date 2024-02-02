@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/app.dart';
 import 'package:flutter_app_template/presentation/go_router_sample/first_go_router_sample_page.dart';
+import 'package:flutter_app_template/presentation/post/post_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -41,6 +42,16 @@ class ImageSampleRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const ImageSamplePage();
+}
+
+@TypedGoRoute<PostSampleRoute>(
+  path: '/post-sample',
+)
+class PostSampleRoute extends GoRouteData {
+  const PostSampleRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const PostPage();
 }
 
 @TypedGoRoute<FirstGoRouterSampleRoute>(

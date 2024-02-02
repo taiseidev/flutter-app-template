@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/exceptions/app_exception.dart';
 import 'package:flutter_app_template/presentation/errors/async_error_widget.dart';
 import 'package:flutter_app_template/providers/loading_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,13 +37,15 @@ extension WidgetRefEx on WidgetRef {
               }
               complete?.call(read(navigatorKeyProvider).currentContext!, data);
             },
-            error: (e, s) async {
+            error: (error, _) async {
               loadingNotifier.hide();
 
               // エラーが発生したらエラーダイアログを表示する
               await showDialog<void>(
                   context: read(navigatorKeyProvider).currentContext!,
-                  builder: (context) => const AsyncErrorWidget());
+                  builder: (context) => AsyncErrorWidget(
+                        exception: error as AppException,
+                      ));
             },
             loading: loadingNotifier.show,
           );
