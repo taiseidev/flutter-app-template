@@ -16,8 +16,8 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).extension<CommonButtonTheme>();
-    final backgroundColor = style?.background ?? theme?.background;
+    final theme = context.commonButtonTheme;
+    final backgroundColor = style?.background ?? theme.background;
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
