@@ -34,6 +34,7 @@ dependencies:
   slang: ^3.29.0 # アプリ翻訳とローカライズ
   slang_flutter: ^3.29.0 # SlangのFlutterサポート
   flutter_native_splash: ^2.3.10
+  flutter_launcher_icons: ^0.13.1
   flutter_localization: ^0.2.0
   flutter_localizations:
     sdk: flutter
@@ -65,6 +66,11 @@ flutter_native_splash:
     image: 'assets/images/splash.png'
     icon_background_color_dark: '#262626'
     image_dark: 'assets/images/splash.png'
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
 
 flutter:
   uses-material-design: true
