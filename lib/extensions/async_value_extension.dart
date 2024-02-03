@@ -6,7 +6,7 @@ import '../presentation/widget/loading/common_loading_widget.dart';
 extension AsyncValueHandler<T> on AsyncValue<T> {
   /// whenメソッドの拡張関数
   ///
-  /// [GET]するProviderの戻り値をwhenでハンドリングする場合、毎回同じloadingとerrorを
+  /// GETするProviderの戻り値をwhenでハンドリングする場合、毎回同じloadingとerrorを
   /// 書くのは冗長なので、Viewではdataのみを制御する
   Widget handleAsyncValue(Widget Function(T value) onData) {
     return when(

@@ -4,7 +4,8 @@ import 'package:flutter_app_template/presentation/widget/errors/async_error_widg
 import 'package:flutter_app_template/providers/loading_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../app.dart';
+import '../providers/navigator_key.dart';
+import '../providers/scaffold_messenger_key.dart';
 
 extension WidgetRefEx on WidgetRef {
   void handleAsyncValue<T>(

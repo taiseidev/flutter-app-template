@@ -33,14 +33,18 @@ class ImageSamplePage extends HookWidget {
                 children: [
                   const Text('画質を変更'),
                   const SizedBox(width: 8),
-                  Text((imageQuality.value * 100).floor().toString()),
+                  RepaintBoundary(
+                    child: Text((imageQuality.value * 100).floor().toString()),
+                  ),
                 ],
               ),
-              Slider(
-                value: imageQuality.value,
-                onChanged: (value) {
-                  imageQuality.value = value;
-                },
+              RepaintBoundary(
+                child: Slider(
+                  value: imageQuality.value,
+                  onChanged: (value) {
+                    imageQuality.value = value;
+                  },
+                ),
               ),
               ElevatedButton(
                 onPressed: () async {

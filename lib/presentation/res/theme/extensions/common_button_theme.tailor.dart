@@ -25,7 +25,7 @@ mixin _$CommonButtonThemeTailorMixin on ThemeExtension<CommonButtonTheme> {
       covariant ThemeExtension<CommonButtonTheme>? other, double t) {
     if (other is! CommonButtonTheme) return this as CommonButtonTheme;
     return CommonButtonTheme(
-      background: t < 0.5 ? background : other.background,
+      background: Color.lerp(background, other.background, t)!,
     );
   }
 

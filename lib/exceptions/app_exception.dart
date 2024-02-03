@@ -1,14 +1,18 @@
+import '../utils/logger.dart';
+
 class AppException implements Exception {
   AppException({
     this.title,
     this.detail,
   });
 
+  factory AppException.handelException(Exception exception) {
+    logger.e(exception);
+    return AppException(title: 'エラーが発生しました。', detail: '時間をおいて再度お試してください。');
+  }
+
   factory AppException.general(Exception exception) =>
-      AppException(title: 'エラーが発生しました。', detail: '時間をおいて再度お試してください。');
-  factory AppException.error(String title) => AppException(title: title);
-  factory AppException.unknown() => AppException(title: '不明なエラーです');
-  factory AppException.irregular() => AppException(title: 'イレギュラーエラーです');
+      AppException.handelException(exception);
 
   final String? title;
   final String? detail;

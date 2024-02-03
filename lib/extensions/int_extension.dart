@@ -20,9 +20,6 @@ extension IntExtension on int {
     return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
   }
 
-  // 数値が偶数かどうかを判定
-  bool get isEven => this % 2 == 0;
-
   // 数値が奇数かどうかを判定
   bool get isOdd => this % 2 != 0;
 

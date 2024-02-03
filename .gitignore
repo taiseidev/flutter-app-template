@@ -40,7 +40,7 @@
 /dev/docs/lib/
 /dev/docs/pubspec.yaml
 /dev/integration_tests/**/xcuserdata
-/dev/integration_tests/**/Pods
+/dev/integratifon_tests/**/Pods
 /packages/flutter/coverage/
 version
 analysis_benchmark.json
@@ -136,6 +136,8 @@ app.*.symbols
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
 !.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 # OS
 linux/

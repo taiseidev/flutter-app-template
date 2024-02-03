@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/app.dart';
 import 'package:flutter_app_template/presentation/ui/go_router_sample/first_go_router_sample_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../providers/navigator_key.dart';
 import '../ui/go_router_sample/fourth_go_router_sample_page.dart';
 import '../ui/go_router_sample/second_go_router_sample_page.dart';
 import '../ui/go_router_sample/third_go_router_sample_page.dart';

@@ -31,7 +31,7 @@ final class PostRepository extends IPostRepository {
   }
 
   @override
-  Future<Post> fetchPostDetail(final int id) async {
+  Future<Post> fetchPostDetail(int id) async {
     // ここでリクエストオブジェクトに変換しているのは冗長だが、
     // Requestオブジェクトを実装する際のイメージとして追加
     final request = PostDetailRequest(id: id);

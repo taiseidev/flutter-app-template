@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/extensions/async_value_extension.dart';
 import 'package:flutter_app_template/extensions/int_extension.dart';
@@ -32,35 +33,59 @@ class HomePage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: MultiAsyncValue.group2(
-          asyncValue,
-          asyncValue2,
-        ).handleAsyncValue(
-          (value) {
-            final value1 = value.$1;
-            final value2 = value.$2;
-            return Text((value1 + value2).toString());
-          },
+        title: RepaintBoundary(
+          child: MultiAsyncValue.group2(
+            asyncValue,
+            asyncValue2,
+          ).handleAsyncValue(
+            (value) {
+              final value1 = value.$1;
+              final value2 = value.$2;
+              return Text((value1 + value2).toString());
+            },
+          ),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            CachedNetworkImage(
+              imageUrl:
+                  'https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              width: 200,
+              height: 200,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
             Text(1000000.toCurrency()),
             Text(notification),
             Text(Strings.greetingWithName('テスト')),
-            CommonButton(
-              text: 'テストボタン',
-              onPressed: () {},
+            RepaintBoundary(
+              child: CommonButton(
+                text: 'テストボタン',
+                onPressed: () {},
+              ),
             ),
-            ElevatedButton(
-              onPressed: () => const ImageSampleRoute().go(context),
-              child: const Text('画像サンプル画面に遷移'),
+            RepaintBoundary(
+              child: ElevatedButton(
+                onPressed: () => const ImageSampleRoute().push<void>(context),
+                child: const Text('画像サンプル画面に遷移'),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () => const PostSampleRoute().go(context),
-              child: const Text('投稿一覧画面に遷移'),
+            RepaintBoundary(
+              child: ElevatedButton(
+                onPressed: () => const PostSampleRoute().go(context),
+                child: const Text('投稿一覧画面に遷移'),
+              ),
             ),
             asyncValue.handleAsyncValue(
               (value) => Center(

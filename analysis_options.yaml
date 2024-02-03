@@ -1,2 +1,16 @@
-# https://pub.dev/packages/pedantic_mono
 include: package:pedantic_mono/analysis_options.yaml
+
+linter:
+  rules:
+    sort_pub_dependencies: false
+    lines_longer_than_80_chars: false
+    one_member_abstracts: false
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    invalid_annotation_target: ignore
+  language:
+    strict-casts: true

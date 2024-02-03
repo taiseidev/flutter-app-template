@@ -37,16 +37,18 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_screenutil: ^5.9.0
   logger: ^2.0.2+1
+  cached_network_image: ^3.3.1
   flutter_localization: ^0.2.0
   flutter_localizations:
     sdk: flutter
+  screen_protector: ^1.4.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.4.8 # Dartのソースコード生成
   cider: ^0.2.5 # バージョン管理
   riverpod_generator: ^2.3.9 # Riverpodのコード生成
-  build_runner: ^2.4.8 # Dartのソースコード生成
   custom_lint: ^0.5.8 # カスタムリントルール
   riverpod_lint: ^2.3.7 # Riverpodのリントルール
   go_router_builder: ^2.4.1 # GoRouterのコード生成

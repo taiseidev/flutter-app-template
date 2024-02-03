@@ -6,7 +6,7 @@ part of 'get_sample_int_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getSampleIntHash() => r'ec0b055d42b103c06ca8fdcdc05093d94a790d1f';
+String _$getSampleIntHash() => r'3b6205059089ba193bed7b8145c3a234c81d5398';
 
 /// See also [getSampleInt].
 @ProviderFor(getSampleInt)
@@ -20,7 +20,7 @@ final getSampleIntProvider = AutoDisposeFutureProvider<int>.internal(
 );
 
 typedef GetSampleIntRef = AutoDisposeFutureProviderRef<int>;
-String _$getSampleInt2Hash() => r'c4b35111e359e65fb3d012057b0e58828ba0f9f2';
+String _$getSampleInt2Hash() => r'65dc1bace2e355f06aa259820a09fa1c283d65ec';
 
 /// See also [getSampleInt2].
 @ProviderFor(getSampleInt2)

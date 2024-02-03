@@ -2,13 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 class ImageCompressService {
-  const ImageCompressService._();
-
-  static const _instance = ImageCompressService._();
-
   factory ImageCompressService() {
     return _instance;
   }
+  const ImageCompressService._();
+
+  static const _instance = ImageCompressService._();
 
   Future<Uint8List?> compressWithFile(
     String path, {

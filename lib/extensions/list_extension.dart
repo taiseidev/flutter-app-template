@@ -31,6 +31,7 @@ extension ListExtension<T> on List<T> {
 
   // リスト内のすべての要素に対して指定した関数を適用
   void apply(void Function(T element) action) {
+    // ignore: prefer_foreach
     for (final element in this) {
       action(element);
     }

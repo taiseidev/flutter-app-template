@@ -1,0 +1,33 @@
+// launch.json
+{
+                    "version": "0.2.0",
+                    "configurations": [
+                                        {
+                                                            "type": "dart",
+                                                            "request": "launch",
+                                                            "name": "dev-debug",
+                                                            "args": [
+                                                                                "--dart-define-from-file=flavor/dev.json"
+                                                            ],
+                                                            "preLaunchTask": "Generate code"
+                                        },
+                                        {
+                                                            "type": "dart",
+                                                            "request": "launch",
+                                                            "name": "stg-debug",
+                                                            "args": [
+                                                                                "--dart-define-from-file=flavor/stg.json"
+                                                            ],
+                                                            "preLaunchTask": "Generate code"
+                                        },
+                                        {
+                                                            "type": "dart",
+                                                            "request": "launch",
+                                                            "name": "prod-debug",
+                                                            "args": [
+                                                                                "--dart-define-from-file=flavor/prod.json"
+                                                            ],
+                                                            "preLaunchTask": "Generate code"
+                                        }
+                    ]
+}
