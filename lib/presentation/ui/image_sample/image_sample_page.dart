@@ -121,24 +121,22 @@ class ImageSamplePage extends HookWidget {
                     if (context.mounted) {
                       await showDialog<void>(
                         context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Exif Information'),
-                            content: SingleChildScrollView(
-                              child: ListBody(
-                                children: exifDetails.map(Text.new).toList(),
-                              ),
+                        builder: (context) => AlertDialog(
+                          title: const Text('Exif Information'),
+                          content: SingleChildScrollView(
+                            child: ListBody(
+                              children: exifDetails.map(Text.new).toList(),
                             ),
-                            actions: <Widget>[
-                              TextButton(
-                                child: const Text('Close'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          );
-                        },
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('Close'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        ),
                       );
                     }
                   }

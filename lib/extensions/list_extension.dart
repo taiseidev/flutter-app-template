@@ -25,9 +25,7 @@ extension ListExtension<T> on List<T> {
   }
 
   // リストを指定した値でフィルタリング
-  List<T> filteredBy(bool Function(T element) test) {
-    return where(test).toList();
-  }
+  List<T> filteredBy(bool Function(T element) test) => where(test).toList();
 
   // リスト内のすべての要素に対して指定した関数を適用
   void apply(void Function(T element) action) {

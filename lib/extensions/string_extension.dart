@@ -26,23 +26,17 @@ extension StringExtension on String {
   }
 
   // 文字列を逆順にする
-  String get reverse {
-    return split('').reversed.join();
-  }
+  String get reverse => split('').reversed.join();
 
   // 文字列からHTMLタグを除去する
   String get stripHtmlTags {
-    final tagRegExp = RegExp(r'<[^>]*>', multiLine: true);
+    final tagRegExp = RegExp('<[^>]*>', multiLine: true);
     return replaceAll(tagRegExp, '');
   }
 
   // 文字列をBase64エンコード
-  String get toBase64 {
-    return base64Encode(utf8.encode(this));
-  }
+  String get toBase64 => base64Encode(utf8.encode(this));
 
   // Base64エンコードされた文字列をデコード
-  String get fromBase64 {
-    return utf8.decode(base64Decode(this));
-  }
+  String get fromBase64 => utf8.decode(base64Decode(this));
 }

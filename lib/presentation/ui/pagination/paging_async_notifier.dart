@@ -1,6 +1,6 @@
-import 'package:flutter_app_template/presentation/ui/pagination/async_value_extension.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'async_value_extension.dart';
 import 'paging_data.dart';
 
 abstract class PagingAsyncNotifier<T extends PagingData>

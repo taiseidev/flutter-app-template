@@ -1,8 +1,8 @@
-import 'package:flutter_app_template/data/remote/repositories/post_repository.dart';
-import 'package:flutter_app_template/domain/repository_interfaces/i_post_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../data/remote/repositories/post_repository.dart';
 import '../../../domain/entities/post/post.dart';
+import '../../../domain/repository_interfaces/i_post_repository.dart';
 import '../execute_safely.dart';
 
 part 'fetch_post_detail_usecase.g.dart';
@@ -16,7 +16,6 @@ class FetchPostDetailUsecase {
 
   final IPostRepository _postRepository;
 
-  Future<Post> execute(int postId) async {
-    return executeSafely(() => _postRepository.fetchPostDetail(postId));
-  }
+  Future<Post> execute(int postId) async =>
+      executeSafely(() => _postRepository.fetchPostDetail(postId));
 }

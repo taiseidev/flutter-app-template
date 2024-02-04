@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/extensions/async_value_extension.dart';
-import 'package:flutter_app_template/extensions/int_extension.dart';
-import 'package:flutter_app_template/extensions/widget_ref_extension.dart';
-import 'package:flutter_app_template/presentation/router/router.dart';
-import 'package:flutter_app_template/presentation/widget/button/common_button.dart';
-import 'package:flutter_app_template/providers/home/get_sample_int_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_async_value/multi_async_value.dart';
 
+import '../../../extensions/async_value_extension.dart';
+import '../../../extensions/int_extension.dart';
+import '../../../extensions/widget_ref_extension.dart';
 import '../../../i18n/strings.g.dart';
+import '../../../providers/home/get_sample_int_provider.dart';
 import '../../res/strings.dart';
+import '../../router/router.dart';
+import '../../widget/button/common_button.dart';
 import 'home_controller.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -77,7 +77,8 @@ class HomePage extends HookConsumerWidget {
             ),
             RepaintBoundary(
               child: ElevatedButton(
-                onPressed: () => const ImageSampleRoute().push<void>(context),
+                onPressed: () async =>
+                    const ImageSampleRoute().push<void>(context),
                 child: const Text('画像サンプル画面に遷移'),
               ),
             ),
@@ -100,7 +101,7 @@ class HomePage extends HookConsumerWidget {
                   children: [
                     Text(value.toString()),
                     ElevatedButton(
-                      onPressed: () =>
+                      onPressed: () async =>
                           ref.read(homeControllerProvider.notifier).post(),
                       child: const Text('POST'),
                     ),

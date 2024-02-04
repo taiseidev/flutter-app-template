@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_app_template/data/models/response/post_response.dart';
-import 'package:flutter_app_template/data/remote/constants/api_endpoints.dart';
-import 'package:flutter_app_template/data/remote/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../models/response/post_response.dart';
+import '../constants/api_endpoints.dart';
+import '../dio.dart';
 
 part 'post_api_client.g.dart';
 

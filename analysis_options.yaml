@@ -1,16 +1,60 @@
-include: package:pedantic_mono/analysis_options.yaml
-
-linter:
-  rules:
-    sort_pub_dependencies: false
-    lines_longer_than_80_chars: false
-    one_member_abstracts: false
-
+include: all_lint_rules.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
-  errors:
-    invalid_annotation_target: ignore
+    - "**/*.tailor.dart"
+    - "**/*.directories.g.dart"
   language:
     strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # all_lint_rulesのインポートによりいくつかのルールの競合が警告されるため、このファイル内で競合を解決
+    included_file_warning: ignore
+    # https://pub.dev/documentation/freezed/latest/#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    # 定数クラスを作成したいので
+    avoid_classes_with_only_static_members: false
+
+    # 開発時に一つのメンバのみを指定することがあるため
+    one_member_abstracts: false
+
+    # 冗長なため
+    prefer_final_parameters: false
+
+    # devtoolでカバーしているため
+    diagnostic_describe_all_properties: false
+
+    # ifを一行で書きたい場合もあるため
+    always_put_control_body_on_new_line: false
+
+    # シングルクオートで書きたいので
+    prefer_double_quotes: false
+
+    # ローカル変数に不必要な型指定を行わないようにするため
+    always_specify_types: false
+
+    # FlutterのTODOスタイルを使用しないため
+    flutter_style_todos: false
+
+    # 80行超える場合もあるため
+    lines_longer_than_80_chars: false
+
+    # pubspec.yamlでパッケージの種類ごとに順番を変更したいため
+    sort_pub_dependencies: false
+
+    # prefer_relative_importsときょうごうするため
+    always_use_package_imports: false
+
+    # 一旦除外（ちゃんとドキュメントを書く）
+    public_member_api_docs: false
+
+    # 全てのケースでfinalを使用することはないため
+    unnecessary_final: false
+
+    # 1行で書いて可読性が悪くなる場合もあるため
+    prefer_expression_function_bodies: false

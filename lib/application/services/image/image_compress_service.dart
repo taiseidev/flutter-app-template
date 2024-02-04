@@ -2,9 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 class ImageCompressService {
-  factory ImageCompressService() {
-    return _instance;
-  }
+  factory ImageCompressService() => _instance;
   const ImageCompressService._();
 
   static const _instance = ImageCompressService._();

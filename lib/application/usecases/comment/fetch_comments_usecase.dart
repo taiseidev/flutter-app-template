@@ -1,8 +1,8 @@
-import 'package:flutter_app_template/data/remote/repositories/comment_repository.dart';
-import 'package:flutter_app_template/domain/entities/comment/comment.dart';
-import 'package:flutter_app_template/domain/repository_interfaces/i_comment_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../data/remote/repositories/comment_repository.dart';
+import '../../../domain/entities/comment/comment.dart';
+import '../../../domain/repository_interfaces/i_comment_repository.dart';
 import '../execute_safely.dart';
 
 part 'fetch_comments_usecase.g.dart';
@@ -16,7 +16,6 @@ class FetchCommentsUsecase {
 
   final ICommentRepository _commentRepository;
 
-  Future<List<Comment>> execute(int postId) async {
-    return executeSafely(() => _commentRepository.fetchComments(postId));
-  }
+  Future<List<Comment>> execute(int postId) async =>
+      executeSafely(() => _commentRepository.fetchComments(postId));
 }

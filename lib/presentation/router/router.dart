@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/presentation/ui/go_router_sample/first_go_router_sample_page.dart';
-import 'package:flutter_app_template/presentation/ui/pagination/page_based_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../providers/navigator_key.dart';
+import '../ui/go_router_sample/first_go_router_sample_page.dart';
 import '../ui/go_router_sample/fourth_go_router_sample_page.dart';
 import '../ui/go_router_sample/second_go_router_sample_page.dart';
 import '../ui/go_router_sample/third_go_router_sample_page.dart';
 import '../ui/home/home_page.dart';
 import '../ui/image_sample/image_sample_page.dart';
+import '../ui/pagination/page_based_view.dart';
 import '../ui/post/post_detail/post_detail_page.dart';
 import '../ui/post/post_page.dart';
 import 'extra_codec.dart';
@@ -129,27 +129,26 @@ class SecondGoRouterSampleRoute extends GoRouteData {
   final CustomClassForGoRouterSample $extra;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return SecondGoRouterSamplePage(
-      stringArg: stringArg,
-      intArg: intArg,
-      doubleArg: doubleArg,
-      boolArg: boolArg,
-      enumArg: enumArg,
-      customArg: $extra,
-    );
-  }
+  Widget build(BuildContext context, GoRouterState state) =>
+      SecondGoRouterSamplePage(
+        stringArg: stringArg,
+        intArg: intArg,
+        doubleArg: doubleArg,
+        boolArg: boolArg,
+        enumArg: enumArg,
+        customArg: $extra,
+      );
 }
 
 class ThirdGoRouterSampleRoute extends GoRouteData {
   const ThirdGoRouterSampleRoute({
+    required this.stringArg2,
     this.stringArg,
     this.intArg,
     this.doubleArg,
     this.boolArg,
     this.enumArg,
     this.$extra,
-    required this.stringArg2,
   });
 
   final String? stringArg;

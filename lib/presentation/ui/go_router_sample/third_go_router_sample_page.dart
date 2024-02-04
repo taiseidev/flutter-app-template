@@ -4,7 +4,6 @@ import 'first_go_router_sample_page.dart';
 
 class ThirdGoRouterSamplePage extends StatelessWidget {
   const ThirdGoRouterSamplePage({
-    super.key,
     required this.stringArg,
     required this.intArg,
     required this.doubleArg,
@@ -12,6 +11,7 @@ class ThirdGoRouterSamplePage extends StatelessWidget {
     required this.enumArg,
     required this.customArg,
     required this.stringArg2,
+    super.key,
   });
 
   final String stringArg;
@@ -23,26 +23,24 @@ class ThirdGoRouterSamplePage extends StatelessWidget {
   final String stringArg2;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Third Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(stringArg),
-            Text(intArg.toString()),
-            Text(doubleArg.toString()),
-            Text(boolArg.toString()),
-            Text(enumArg.name),
-            Text(customArg.name),
-            Text(customArg.index.toString()),
-            Text(stringArg2),
-          ],
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Third Page'),
         ),
-      ),
-    );
-  }
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(stringArg),
+              Text(intArg.toString()),
+              Text(doubleArg.toString()),
+              Text(boolArg.toString()),
+              Text(enumArg.name),
+              Text(customArg.name),
+              Text(customArg.index.toString()),
+              Text(stringArg2),
+            ],
+          ),
+        ),
+      );
 }

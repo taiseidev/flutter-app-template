@@ -2,29 +2,20 @@ import 'package:intl/intl.dart';
 
 extension DateTimeExtension on DateTime {
   // YYYY-MM-DD 形式
-  String toYMD() {
-    return DateFormat('yyyy-MM-dd').format(this);
-  }
+  String toYMD() => DateFormat('yyyy-MM-dd').format(this);
 
   // 日付の長い形式（例：2022年1月3日）
-  String toLongDate() {
-    return DateFormat('y年M月d日').format(this);
-  }
+  String toLongDate() => DateFormat('y年M月d日').format(this);
 
   // 日付と時間（例：2022年1月3日 14:03）
-  String toLongDateTime() {
-    return DateFormat('y年M月d日 H:mm').format(this);
-  }
+  String toLongDateTime() => DateFormat('y年M月d日 H:mm').format(this);
 
   // 時間と分（HH:MM 形式）
-  String toHourMinute() {
-    return DateFormat('HH:mm').format(this);
-  }
+  String toHourMinute() => DateFormat('HH:mm').format(this);
 
   // 曜日を含む日付（例：月曜日, 2022年1月3日）
-  String toWeekdayLongDate() {
-    return DateFormat('EEEE, y年M月d日', 'ja_JP').format(this);
-  }
+  String toWeekdayLongDate() =>
+      DateFormat('EEEE, y年M月d日', 'ja_JP').format(this);
 
   // 相対的な日付表現（例：昨日、今日、明日）
   String toRelativeDate() {
@@ -45,7 +36,5 @@ extension DateTimeExtension on DateTime {
   }
 
   // 月と日（例：1月3日）
-  String toMonthDay() {
-    return DateFormat('M月d日').format(this);
-  }
+  String toMonthDay() => DateFormat('M月d日').format(this);
 }

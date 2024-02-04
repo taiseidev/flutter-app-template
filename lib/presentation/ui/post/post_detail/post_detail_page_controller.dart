@@ -1,7 +1,7 @@
-import 'package:flutter_app_template/application/usecases/comment/fetch_comments_usecase.dart';
-import 'package:flutter_app_template/application/usecases/post/fetch_post_detail_usecase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../application/usecases/comment/fetch_comments_usecase.dart';
+import '../../../../application/usecases/post/fetch_post_detail_usecase.dart';
 import '../../../../domain/entities/comment/comment.dart';
 import '../../../../domain/entities/post/post.dart';
 

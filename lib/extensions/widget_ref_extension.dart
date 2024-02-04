@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/exceptions/app_exception.dart';
-import 'package:flutter_app_template/presentation/widget/errors/async_error_widget.dart';
-import 'package:flutter_app_template/providers/loading_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../exceptions/app_exception.dart';
+import '../presentation/widget/errors/async_error_widget.dart';
+import '../providers/loading_notifier.dart';
 import '../providers/navigator_key.dart';
 import '../providers/scaffold_messenger_key.dart';
 

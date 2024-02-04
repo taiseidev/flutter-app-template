@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app_template/data/local/secure_storage/secure_storage_instance.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+import 'secure_storage_instance.dart';
 
 enum StorageKeyType {
   userId,
@@ -9,11 +10,10 @@ enum StorageKeyType {
 class SecureStorageValues {
   SecureStorageValues({this.userId});
 
-  factory SecureStorageValues.fromMap(Map<String, String> map) {
-    return SecureStorageValues(
-      userId: map[StorageKeyType.userId.name],
-    );
-  }
+  factory SecureStorageValues.fromMap(Map<String, String> map) =>
+      SecureStorageValues(
+        userId: map[StorageKeyType.userId.name],
+      );
   final String? userId;
 }
 

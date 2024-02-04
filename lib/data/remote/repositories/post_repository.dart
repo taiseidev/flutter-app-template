@@ -1,9 +1,9 @@
-import 'package:flutter_app_template/data/models/request/post_detail_request.dart';
-import 'package:flutter_app_template/data/remote/api/post_api_client.dart';
-import 'package:flutter_app_template/domain/repository_interfaces/i_post_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../domain/entities/post/post.dart';
+import '../../../domain/repository_interfaces/i_post_repository.dart';
+import '../../models/request/post_detail_request.dart';
+import '../api/post_api_client.dart';
 
 part 'post_repository.g.dart';
 

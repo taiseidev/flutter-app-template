@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/presentation/res/theme/theme.dart';
-import 'package:flutter_app_template/presentation/router/router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'i18n/strings.g.dart';
+import 'presentation/res/theme/theme.dart';
+import 'presentation/router/router.dart';
 import 'providers/loading_notifier.dart';
 import 'providers/scaffold_messenger_key.dart';
 
@@ -35,25 +35,23 @@ class _GlobalLoading extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        child,
-        Consumer(
-          builder: (_, ref, __) {
-            final isLoading = ref.watch(loadingNotifierProvider);
-            if (!isLoading) {
-              return const SizedBox.shrink();
-            }
-            return const ColoredBox(
-              color: Colors.black26,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Stack(
+        children: [
+          child,
+          Consumer(
+            builder: (_, ref, __) {
+              final isLoading = ref.watch(loadingNotifierProvider);
+              if (!isLoading) {
+                return const SizedBox.shrink();
+              }
+              return const ColoredBox(
+                color: Colors.black26,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            },
+          ),
+        ],
+      );
 }

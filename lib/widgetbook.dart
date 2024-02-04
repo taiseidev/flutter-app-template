@@ -13,9 +13,7 @@ class WidgetbookApp extends StatelessWidget {
   const WidgetbookApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Widgetbook.material(
-      directories: directories,
-    );
-  }
+  Widget build(BuildContext context) => Widgetbook.material(
+        directories: directories,
+      );
 }

@@ -2,31 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 class GradientTextComponent extends StatelessWidget {
-  const GradientTextComponent({super.key, required this.text});
+  const GradientTextComponent({required this.text, super.key});
 
   final String text;
 
   @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (Rect rect) {
-        return const LinearGradient(
+  Widget build(BuildContext context) => ShaderMask(
+        shaderCallback: (rect) => const LinearGradient(
           colors: [
             Colors.blue,
             Colors.green,
             Colors.yellow,
           ],
-        ).createShader(rect);
-      },
-      child: Text(
-        text,
-        style: const TextStyle(
-          inherit: false,
-          color: Colors.white,
+        ).createShader(rect),
+        child: Text(
+          text,
+          style: const TextStyle(
+            inherit: false,
+            color: Colors.white,
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
 
 @widgetbook.UseCase(

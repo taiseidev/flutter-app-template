@@ -12,13 +12,11 @@ class ImagePickerService {
   static String imageSizeDebugMessage(double size, [int fractionDigits = 2]) =>
       '${size.toStringAsFixed(fractionDigits)} MB';
 
-  static Future<XFile?> pickImageFromGallery() async {
-    return _picker.pickImage(source: ImageSource.gallery);
-  }
+  static Future<XFile?> pickImageFromGallery() async =>
+      _picker.pickImage(source: ImageSource.gallery);
 
-  static Future<XFile?> takePictureFromCamera() async {
-    return _picker.pickImage(source: ImageSource.camera);
-  }
+  static Future<XFile?> takePictureFromCamera() async =>
+      _picker.pickImage(source: ImageSource.camera);
 
   // 画像ファイルのサイズをメガバイト単位で取得するメソッド
   static Future<double> getImageSizeInMB(XFile file) async {

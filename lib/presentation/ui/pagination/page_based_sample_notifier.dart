@@ -1,8 +1,8 @@
-import 'package:flutter_app_template/presentation/ui/pagination/sample_item.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'paging_async_notifier.dart';
 import 'paging_data.dart';
+import 'sample_item.dart';
 
 part 'page_based_sample_notifier.g.dart';
 
@@ -49,17 +49,16 @@ SampleRepository sampleRepository(SampleRepositoryRef ref) =>
     SampleRepository();
 
 class SampleRepository {
-  Future<PageBasedPagingData> getByPage({int? page}) async {
-    return PageBasedPagingData(
-      items: List.generate(
-        1000,
-        (index) => const SampleItem(
-          id: 1,
-          name: 'dkfsldkj',
+  Future<PageBasedPagingData> getByPage({int? page}) async =>
+      PageBasedPagingData(
+        items: List.generate(
+          1000,
+          (index) => const SampleItem(
+            id: 1,
+            name: 'dkfsldkj',
+          ),
         ),
-      ),
-      page: 1,
-      hasMore: true,
-    );
-  }
+        page: 1,
+        hasMore: true,
+      );
 }

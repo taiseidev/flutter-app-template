@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_app_template/data/local/secure_storage/secure_storage_instance.dart';
-import 'package:flutter_app_template/data/local/shared_preference/shared_preferences_instance.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:screen_protector/screen_protector.dart';
 
 import 'app.dart';
+import 'data/local/secure_storage/secure_storage_instance.dart';
 import 'data/local/shared_preference/preference_key_type.dart';
+import 'data/local/shared_preference/shared_preferences_instance.dart';
 import 'i18n/strings.g.dart';
 
 Future<void> main() async {

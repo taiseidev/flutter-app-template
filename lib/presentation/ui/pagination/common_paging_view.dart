@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/presentation/ui/pagination/async_value_extension.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import 'async_value_extension.dart';
 import 'paging_async_notifier.dart';
 import 'paging_data.dart';
 
@@ -27,6 +27,7 @@ class CommonPagingView<N extends PagingAsyncNotifier<D>,
   final AutoDisposeAsyncNotifierProvider<N, D> provider;
 
   /// データがある場合に表示するWidgetを返す関数を指定する
+  // ignore: comment_references
   /// [endItem]は最後に表示されたアイテムが表示されたことを検知するためのWidgetで、non nullの時にリストの最後に表示する
   final Widget Function(D data, Widget? endItem) contentBuilder;
 
@@ -38,23 +39,21 @@ class CommonPagingView<N extends PagingAsyncNotifier<D>,
     });
 
     return ref.watch(provider).whenPlus(
-          data: (data, hasError) {
-            return RefreshIndicator(
-              onRefresh: () => ref.refresh(provider.future),
-              child: Scrollbar(
-                child: contentBuilder(
-                  data,
-                  // 次のページがあり、かつエラーがない場合に、最後の要素に達したことを検知するためのWidgetを表示する
-                  data.hasMore && !hasError
-                      ? _EndItem(
-                          onScrollEnd: () =>
-                              ref.read(provider.notifier).loadNext(),
-                        )
-                      : null,
-                ),
+          data: (data, hasError) => RefreshIndicator(
+            onRefresh: () async => ref.refresh(provider.future),
+            child: Scrollbar(
+              child: contentBuilder(
+                data,
+                // 次のページがあり、かつエラーがない場合に、最後の要素に達したことを検知するためのWidgetを表示する
+                data.hasMore && !hasError
+                    ? _EndItem(
+                        onScrollEnd: () async =>
+                            ref.read(provider.notifier).loadNext(),
+                      )
+                    : null,
               ),
-            );
-          },
+            ),
+          ),
           // １ページ目のロード中
           loading: () => const Center(
             child: CircularProgressIndicator(),
@@ -80,26 +79,23 @@ class CommonPagingView<N extends PagingAsyncNotifier<D>,
 
 class _EndItem extends StatelessWidget {
   const _EndItem({
-    super.key,
     required this.onScrollEnd,
   });
   final VoidCallback onScrollEnd;
 
   @override
-  Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: key ?? const Key('EndItem'),
-      onVisibilityChanged: (info) {
-        if (info.visibleFraction > 0.1) {
-          onScrollEnd();
-        }
-      },
-      child: const Center(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: CircularProgressIndicator(),
+  Widget build(BuildContext context) => VisibilityDetector(
+        key: key ?? const Key('EndItem'),
+        onVisibilityChanged: (info) {
+          if (info.visibleFraction > 0.1) {
+            onScrollEnd();
+          }
+        },
+        child: const Center(
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: CircularProgressIndicator(),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

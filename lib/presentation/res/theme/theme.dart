@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/presentation/res/theme/extensions/common_button_theme.dart';
+
+import 'extensions/common_button_theme.dart';
 
 ThemeData getLightThemeData() {
   final base = ThemeData(

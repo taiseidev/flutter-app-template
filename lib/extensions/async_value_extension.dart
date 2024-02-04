@@ -8,11 +8,9 @@ extension AsyncValueHandler<T> on AsyncValue<T> {
   ///
   /// GETするProviderの戻り値をwhenでハンドリングする場合、毎回同じloadingとerrorを
   /// 書くのは冗長なので、Viewではdataのみを制御する
-  Widget handleAsyncValue(Widget Function(T value) onData) {
-    return when(
-      loading: () => const CommonLoadingWidget(),
-      error: (_, __) => const SizedBox.shrink(),
-      data: onData,
-    );
-  }
+  Widget handleAsyncValue(Widget Function(T value) onData) => when(
+        loading: () => const CommonLoadingWidget(),
+        error: (exception, __) => ErrorWidget(exception),
+        data: onData,
+      );
 }

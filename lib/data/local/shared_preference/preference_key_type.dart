@@ -1,5 +1,6 @@
-import 'package:flutter_app_template/data/local/shared_preference/shared_preferences_instance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'shared_preferences_instance.dart';
 
 enum PreferenceKeyType {
   userId,
@@ -14,25 +15,19 @@ extension PreferenceKeyTypeExt on PreferenceKeyType {
         PreferenceKeyType.isFirstLaunch => PreferenceKeyType.isFirstLaunch.name
       };
 
-  Future<bool> setInt(int value) async {
-    return _prefs.setInt(keyString, value);
-  }
+  Future<bool> setInt(int value) async => _prefs.setInt(keyString, value);
 
-  Future<bool> setBool({required bool value}) async {
-    return _prefs.setBool(keyString, value);
-  }
+  Future<bool> setBool({required bool value}) async =>
+      _prefs.setBool(keyString, value);
 
-  Future<bool> setDouble(double value) async {
-    return _prefs.setDouble(keyString, value);
-  }
+  Future<bool> setDouble(double value) async =>
+      _prefs.setDouble(keyString, value);
 
-  Future<bool> setString(String value) async {
-    return _prefs.setString(keyString, value);
-  }
+  Future<bool> setString(String value) async =>
+      _prefs.setString(keyString, value);
 
-  Future<bool> setStringList(List<String> value) async {
-    return _prefs.setStringList(keyString, value);
-  }
+  Future<bool> setStringList(List<String> value) async =>
+      _prefs.setStringList(keyString, value);
 
   int? getInt({int? defaultValue}) {
     if (_prefs.containsKey(keyString)) {

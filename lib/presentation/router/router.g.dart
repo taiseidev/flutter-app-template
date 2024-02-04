@@ -218,6 +218,7 @@ const _$SampleEnumEnumMap = {
 extension $ThirdGoRouterSampleRouteExtension on ThirdGoRouterSampleRoute {
   static ThirdGoRouterSampleRoute _fromState(GoRouterState state) =>
       ThirdGoRouterSampleRoute(
+        stringArg2: state.uri.queryParameters['string-arg2']!,
         stringArg: state.uri.queryParameters['string-arg'],
         intArg:
             _$convertMapValue('int-arg', state.uri.queryParameters, int.parse),
@@ -227,19 +228,18 @@ extension $ThirdGoRouterSampleRouteExtension on ThirdGoRouterSampleRoute {
             'bool-arg', state.uri.queryParameters, _$boolConverter),
         enumArg: _$convertMapValue('enum-arg', state.uri.queryParameters,
             _$SampleEnumEnumMap._$fromName),
-        stringArg2: state.uri.queryParameters['string-arg2']!,
         $extra: state.extra as CustomClassForGoRouterSample?,
       );
 
   String get location => GoRouteData.$location(
         '/second-go-router-sample/third-go-router-sample',
         queryParams: {
+          'string-arg2': stringArg2,
           if (stringArg != null) 'string-arg': stringArg,
           if (intArg != null) 'int-arg': intArg!.toString(),
           if (doubleArg != null) 'double-arg': doubleArg!.toString(),
           if (boolArg != null) 'bool-arg': boolArg!.toString(),
           if (enumArg != null) 'enum-arg': _$SampleEnumEnumMap[enumArg!],
-          'string-arg2': stringArg2,
         },
       );
 

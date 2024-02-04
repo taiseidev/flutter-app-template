@@ -1,8 +1,8 @@
-import 'package:flutter_app_template/data/remote/api/comment_api_client.dart';
-import 'package:flutter_app_template/domain/entities/comment/comment.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../domain/entities/comment/comment.dart';
 import '../../../domain/repository_interfaces/i_comment_repository.dart';
+import '../api/comment_api_client.dart';
 
 part 'comment_repository.g.dart';
 

@@ -18,13 +18,14 @@ extension AsyncValueX<T> on AsyncValue<T> {
   /// [skipErrorOnHasValue]がtrueの時はデータがある場合のエラーをスキップする
   /// ページングの2ページ目以降でエラー時に、取得ずみデータを表示する場合などに使用する
   R whenPlus<R>({
+    // ignore: avoid_positional_boolean_parameters
+    required R Function(T data, bool hasError) data,
+    required R Function(Object error, StackTrace stackTrace) error,
+    required R Function() loading,
     bool skipLoadingOnReload = false,
     bool skipLoadingOnRefresh = true,
     bool skipError = false,
     bool skipErrorOnHasValue = false,
-    required R Function(T data, bool hasError) data,
-    required R Function(Object error, StackTrace stackTrace) error,
-    required R Function() loading,
   }) {
     if (skipErrorOnHasValue) {
       if (hasValue && hasError) {

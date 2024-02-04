@@ -4,9 +4,9 @@ import '../../res/theme/extensions/common_button_theme.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
-    super.key,
     required this.text,
     required this.onPressed,
+    super.key,
     this.style,
   });
 
