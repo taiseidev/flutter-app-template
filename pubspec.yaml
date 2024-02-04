@@ -42,6 +42,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   screen_protector: ^1.4.2
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:

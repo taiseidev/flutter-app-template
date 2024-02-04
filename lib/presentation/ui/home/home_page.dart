@@ -87,6 +87,12 @@ class HomePage extends HookConsumerWidget {
                 child: const Text('投稿一覧画面に遷移'),
               ),
             ),
+            RepaintBoundary(
+              child: ElevatedButton(
+                onPressed: () => const PageBasedViewRoute().go(context),
+                child: const Text('ページング画面'),
+              ),
+            ),
             asyncValue.handleAsyncValue(
               (value) => Center(
                 child: Column(

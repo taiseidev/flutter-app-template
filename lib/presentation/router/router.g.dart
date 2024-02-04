@@ -9,6 +9,7 @@ part of 'router.dart';
 List<RouteBase> get $appRoutes => [
       $homeRoute,
       $imageSampleRoute,
+      $pageBasedViewRoute,
       $postSampleRoute,
       $firstGoRouterSampleRoute,
       $secondGoRouterSampleRoute,
@@ -47,6 +48,29 @@ extension $ImageSampleRouteExtension on ImageSampleRoute {
 
   String get location => GoRouteData.$location(
         '/image-sample',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $pageBasedViewRoute => GoRouteData.$route(
+      path: '/page-based-view',
+      factory: $PageBasedViewRouteExtension._fromState,
+    );
+
+extension $PageBasedViewRouteExtension on PageBasedViewRoute {
+  static PageBasedViewRoute _fromState(GoRouterState state) =>
+      const PageBasedViewRoute();
+
+  String get location => GoRouteData.$location(
+        '/page-based-view',
       );
 
   void go(BuildContext context) => context.go(location);

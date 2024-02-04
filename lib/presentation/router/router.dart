@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/presentation/ui/go_router_sample/first_go_router_sample_page.dart';
+import 'package:flutter_app_template/presentation/ui/pagination/page_based_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -43,6 +44,17 @@ class ImageSampleRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const ImageSamplePage();
+}
+
+@TypedGoRoute<PageBasedViewRoute>(
+  path: '/page-based-view',
+)
+class PageBasedViewRoute extends GoRouteData {
+  const PageBasedViewRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PageBasedView();
 }
 
 @TypedGoRoute<PostSampleRoute>(
