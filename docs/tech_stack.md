@@ -30,3 +30,20 @@
 
 ## Document
 ・[Dart のドキュメンテーションについて](https://zenn.dev/team_soda/articles/dart-documentation)
+
+## import
+・[Flutterおすすめのimport周りの設定](https://zenn.dev/k9i/articles/34dab7d09b29a1#import_sorter%E3%81%AF%E4%BD%BF%E3%82%8F%E3%81%AA%E3%81%84)
+・[Flutterパッケージの更新に役立つTips](https://zenn.dev/k9i/articles/ffa716e272afaa)
+
+## Dialog, SnackBar, Loading
+・[【Flutter】AsyncValue を使ってローディング表示、ダイアログ表示、スナックバー表示の共通化をしてみた](https://zenn.dev/flutteruniv_dev/articles/20221214-090833-flutter-async-value)
+
+## GoRouter
+・[【Flutter】 go_routerの使い方](https://zenn.dev/channel/articles/af4ffd813b1424)
+・[【Flutter】go_router をタイプセーフに使う方法【go_router_builder】](https://zenn.dev/flutteruniv_dev/articles/20220801-135028-flutter-go-router-builder)
+・[go_routerで自作Classを渡す方法](https://zenn.dev/minma/articles/2b6510c899be6d)
+`$extra`でカスタムクラスを渡しただけだと下記警告が発生するためcodecを作成する必要がある
+
+```dart
+[GoRouter] An extra with complex data type CustomClassForGoRouterSample is provided without a codec. Consider provide a codec to GoRouter to prevent extra being dropped during serialization.
+```
