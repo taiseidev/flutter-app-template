@@ -47,3 +47,9 @@
 ```dart
 [GoRouter] An extra with complex data type CustomClassForGoRouterSample is provided without a codec. Consider provide a codec to GoRouter to prevent extra being dropped during serialization.
 ```
+
+## 命名
+
+命名で迷ったら下記サービスを活用する
+
+・[codic](https://codic.jp/)

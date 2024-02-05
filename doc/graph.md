@@ -1,5 +1,4 @@
 ```mermaid
-
 flowchart TB
   subgraph Arrows
     direction LR
@@ -29,24 +28,30 @@ flowchart TB
   dioProvider[["dioProvider"]];
   goRouterProvider[["goRouterProvider"]];
   scaffoldMessengerKeyProvider[["scaffoldMessengerKeyProvider"]];
-  loadingNotifierProvider[["loadingNotifierProvider"]];
   getSampleIntProvider[["getSampleIntProvider"]];
   getSampleInt2Provider[["getSampleInt2Provider"]];
   homeControllerProvider[["homeControllerProvider"]];
+  subgraph CommonPagingView
+    CommonPagingView.provider[["provider"]];
+  end
   postPageControllerProvider[["postPageControllerProvider"]];
   postDetailPageControllerProvider[["postDetailPageControllerProvider"]];
   navigatorKeyProvider[["navigatorKeyProvider"]];
   App((App));
   HomePage((HomePage));
+  CommonPagingView((CommonPagingView));
   PostPage((PostPage));
   PostDetailPage((PostDetailPage));
 
   goRouterProvider ==> App;
   scaffoldMessengerKeyProvider ==> App;
-  loadingNotifierProvider ==> App;
   getSampleIntProvider ==> HomePage;
   getSampleInt2Provider ==> HomePage;
   homeControllerProvider -.-> HomePage;
+  CommonPagingView.provider ==> CommonPagingView;
+  CommonPagingView.provider --> CommonPagingView;
+  CommonPagingView.provider -.-> CommonPagingView;
+  CommonPagingView.provider -.-> CommonPagingView;
   postPageControllerProvider ==> PostPage;
   postDetailPageControllerProvider ==> PostDetailPage;
   postRepositoryProvider ==> fetchPostsUsecaseProvider;

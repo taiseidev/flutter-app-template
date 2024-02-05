@@ -19,3 +19,17 @@ android:
 	flutter clean
 	flutter pub get
 	flutter build appbundle
+
+# ドキュメント作成・更新
+generate-doc:
+	export PATH="$$HOME/fvm/default/bin:$$PATH"
+	dart doc
+
+# ドキュメントを開く
+open-doc:
+	open doc/api/index.html
+
+# riverpod_graphを作成
+generate-graph:
+	dart pub global run riverpod_graph:riverpod_graph > doc/graph.md
+	./sh/fix_graph.sh
