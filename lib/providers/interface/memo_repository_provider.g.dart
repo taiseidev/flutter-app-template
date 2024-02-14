@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'comment_repository.dart';
+part of 'memo_repository_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$commentRepositoryHash() => r'c43643fdde49924314cf967c70b0657efe218e6f';
+String _$memoRepositoryHash() => r'ba130e4d52ff972d3ce416a70444999b5ccd9597';
 
-/// See also [commentRepository].
-@ProviderFor(commentRepository)
-final commentRepositoryProvider = Provider<CommentRepository>.internal(
-  commentRepository,
-  name: r'commentRepositoryProvider',
+/// See also [memoRepository].
+@ProviderFor(memoRepository)
+final memoRepositoryProvider = Provider<IMemoRepository>.internal(
+  memoRepository,
+  name: r'memoRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$commentRepositoryHash,
+      : _$memoRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef CommentRepositoryRef = ProviderRef<CommentRepository>;
+typedef MemoRepositoryRef = ProviderRef<IMemoRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

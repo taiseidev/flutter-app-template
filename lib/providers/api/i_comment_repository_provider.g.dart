@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'fetch_posts_usecase.dart';
+part of 'i_comment_repository_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchPostsUsecaseHash() => r'6ff577f2a592ba615900dbe08388c2cd880fa9c0';
+String _$iCommentRepositoryHash() =>
+    r'5d02f2c9e8f965ea648e45c85de96a342c819c1f';
 
-/// See also [fetchPostsUsecase].
-@ProviderFor(fetchPostsUsecase)
-final fetchPostsUsecaseProvider =
-    AutoDisposeProvider<FetchPostsUsecase>.internal(
-  fetchPostsUsecase,
-  name: r'fetchPostsUsecaseProvider',
+/// See also [iCommentRepository].
+@ProviderFor(iCommentRepository)
+final iCommentRepositoryProvider = Provider<ICommentRepository>.internal(
+  iCommentRepository,
+  name: r'iCommentRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$fetchPostsUsecaseHash,
+      : _$iCommentRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef FetchPostsUsecaseRef = AutoDisposeProviderRef<FetchPostsUsecase>;
+typedef ICommentRepositoryRef = ProviderRef<ICommentRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

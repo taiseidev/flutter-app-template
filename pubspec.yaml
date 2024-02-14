@@ -52,6 +52,9 @@ dependencies:
   # ローカルDB
   shared_preferences: ^2.2.2
   flutter_secure_storage: ^9.0.0
+  isar: ^3.0.0
+  isar_flutter_libs: ^3.0.0
+  path_provider: ^2.0.11
 
   # 多言語対応
   intl: ^0.18.1
@@ -85,8 +88,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   freezed: ^2.4.6
   slang_build_runner: ^3.29.0
-  import_lint: ^1.0.0
-
+  isar_generator: ^3.0.0
 
 flutter_native_splash:
   color: '#add8e6'
@@ -110,7 +112,6 @@ flutter:
   assets:
      - assets/images/
 
-# import_lintの使用しているバージョンが低いため追加（import_lint自体の使用を検討する）
+# riverpod_lintとisar_generatorが依存しているanalyzerが競合しているため
 dependency_overrides:
-  cli_util: 0.4.0
-  analyzer: 6.0.0
+  analyzer: ^6.0.0

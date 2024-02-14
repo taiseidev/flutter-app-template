@@ -1,14 +1,6 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../domain/entities/comment/comment.dart';
-import '../../../domain/repository_interfaces/i_comment_repository.dart';
-import '../api/comment_api_client.dart';
-
-part 'comment_repository.g.dart';
-
-@Riverpod(keepAlive: true)
-CommentRepository commentRepository(CommentRepositoryRef ref) =>
-    CommentRepository(ref.watch(commentApiClientProvider));
+import '../../../../domain/entities/comment/comment.dart';
+import '../../../../domain/repository_interfaces/i_comment_repository.dart';
+import '../../api/comment_api_client.dart';
 
 final class CommentRepository extends ICommentRepository {
   CommentRepository(this._apiClient);

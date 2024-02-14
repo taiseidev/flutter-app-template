@@ -7,7 +7,7 @@ part of 'fetch_post_detail_usecase.dart';
 // **************************************************************************
 
 String _$fetchPostDetailUsecaseHash() =>
-    r'cf68027ca288dfeb8993bf6dfc1830ed3cd383ae';
+    r'92e981f44e6a0ce67b7d20de8c175e09f6afbd83';
 
 /// See also [fetchPostDetailUsecase].
 @ProviderFor(fetchPostDetailUsecase)

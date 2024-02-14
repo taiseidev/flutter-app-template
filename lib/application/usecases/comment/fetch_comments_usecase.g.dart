@@ -7,7 +7,7 @@ part of 'fetch_comments_usecase.dart';
 // **************************************************************************
 
 String _$fetchCommentsUsecaseHash() =>
-    r'6ad31e42220da7a1dc15921eea078bc12734e9ba';
+    r'2b640dc675dad4f18a15e2e3b0462ba56f7b444b';
 
 /// See also [fetchCommentsUsecase].
 @ProviderFor(fetchCommentsUsecase)

@@ -53,3 +53,6 @@
 命名で迷ったら下記サービスを活用する
 
 ・[codic](https://codic.jp/)
+
+## Local DB
+・[【Flutter】ローカル DB パッケージの Isar Database の使い方](https://zenn.dev/flutteruniv_dev/articles/20220607-061331-flutter-isar)

@@ -1,15 +1,7 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../domain/entities/post/post.dart';
-import '../../../domain/repository_interfaces/i_post_repository.dart';
-import '../../models/request/post_detail_request.dart';
-import '../api/post_api_client.dart';
-
-part 'post_repository.g.dart';
-
-@Riverpod(keepAlive: true)
-PostRepository postRepository(PostRepositoryRef ref) =>
-    PostRepository(ref.watch(postApiClientProvider));
+import '../../../../domain/entities/post/post.dart';
+import '../../../../domain/repository_interfaces/i_post_repository.dart';
+import '../../../models/request/post_detail_request.dart';
+import '../../api/post_api_client.dart';
 
 final class PostRepository extends IPostRepository {
   PostRepository(this._apiClient);
