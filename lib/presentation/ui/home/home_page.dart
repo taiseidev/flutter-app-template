@@ -6,7 +6,6 @@ import 'package:multi_async_value/multi_async_value.dart';
 import '../../../extensions/async_value_extension.dart';
 import '../../../extensions/int_extension.dart';
 import '../../../extensions/widget_ref_extension.dart';
-import '../../../i18n/constants.g.dart';
 import '../../../providers/home/get_sample_int_provider.dart';
 import '../../res/strings.dart';
 import '../../router/router.dart';
@@ -28,9 +27,6 @@ class HomePage extends HookConsumerWidget {
         debugPrint('完了');
       },
     );
-
-    final notification = constants.settings.notification;
-    final status = constants.error.codes['404'];
 
     return Scaffold(
       appBar: AppBar(
@@ -67,9 +63,7 @@ class HomePage extends HookConsumerWidget {
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-            Text(status.toString()),
             Text(1000000.toCurrency()),
-            Text(notification),
             Text(Strings.greetingWithName('テスト')),
             RepaintBoundary(
               child: CommonButton(

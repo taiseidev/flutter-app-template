@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 11 (5 per locale)
+/// Strings: 26 (13 per locale)
 ///
-/// Built on 2024-04-01 at 10:40 UTC
+/// Built on 2024-04-01 at 13:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -150,15 +150,115 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	String get greeting => _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
-	String get welcomeMessage => _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
-	late final _ConstantsSettingsJa settings = _ConstantsSettingsJa._(_root);
-	late final _ConstantsErrorJa error = _ConstantsErrorJa._(_root);
+	late final _ConstantsExampleJa example = _ConstantsExampleJa._(_root);
+	late final _ConstantsStringsJa strings = _ConstantsStringsJa._(_root);
 }
 
-// Path: settings
-class _ConstantsSettingsJa {
-	_ConstantsSettingsJa._(this._root);
+// Path: example
+class _ConstantsExampleJa {
+	_ConstantsExampleJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _ConstantsExampleMainScreenJa mainScreen = _ConstantsExampleMainScreenJa._(_root);
+	late final _ConstantsExampleGameJa game = _ConstantsExampleGameJa._(_root);
+	String items({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: _root.$meta.d([94, 104, 114, 39, 111, 102, 113, 98, 39]) + n.toString() + _root.$meta.d([39, 110, 115, 98, 106]),
+		other: _root.$meta.d([94, 104, 114, 39, 111, 102, 113, 98, 39]) + n.toString() + _root.$meta.d([39, 110, 115, 98, 106, 116]),
+	);
+	late final _ConstantsExampleGreetJa greet = _ConstantsExampleGreetJa._(_root);
+	late final _ConstantsExampleIntroJa intro = _ConstantsExampleIntroJa._(_root);
+	late final _ConstantsExampleErrorJa error = _ConstantsExampleErrorJa._(_root);
+	late final _ConstantsExampleOnboardingJa onboarding = _ConstantsExampleOnboardingJa._(_root);
+}
+
+// Path: strings
+class _ConstantsStringsJa {
+	_ConstantsStringsJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get greeting => _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
+	String get welcomeMessage => _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
+	late final _ConstantsStringsSettingsJa settings = _ConstantsStringsSettingsJa._(_root);
+	late final _ConstantsStringsErrorJa error = _ConstantsStringsErrorJa._(_root);
+}
+
+// Path: example.mainScreen
+class _ConstantsExampleMainScreenJa {
+	_ConstantsExampleMainScreenJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => _root.$meta.d([74, 102, 110, 105, 39, 84, 100, 117, 98, 98, 105, 39, 83, 110, 115, 107, 98]);
+}
+
+// Path: example.game
+class _ConstantsExampleGameJa {
+	_ConstantsExampleGameJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _ConstantsExampleGameEndJa end = _ConstantsExampleGameEndJa._(_root);
+}
+
+// Path: example.greet
+class _ConstantsExampleGreetJa {
+	_ConstantsExampleGreetJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get male => _root.$meta.d([79, 98, 107, 107, 104, 39, 74, 117, 41, 39, 124, 124, 105, 102, 106, 98, 122, 122]);
+	String get female => _root.$meta.d([79, 98, 107, 107, 104, 39, 74, 116, 41, 39, 124, 124, 105, 102, 106, 98, 122, 122]);
+}
+
+// Path: example.intro
+class _ConstantsExampleIntroJa {
+	_ConstantsExampleIntroJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	List<String> get step => [
+		_root.$meta.d([84, 115, 98, 119, 39, 54]),
+		_root.$meta.d([84, 115, 98, 119, 39, 53]),
+		_root.$meta.d([84, 115, 98, 119, 39, 52]),
+		_root.$meta.d([84, 115, 98, 119, 39, 51]),
+		_root.$meta.d([84, 115, 98, 119, 39, 50]),
+	];
+}
+
+// Path: example.error
+class _ConstantsExampleErrorJa {
+	_ConstantsExampleErrorJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _ConstantsExampleErrorTypeJa type = _ConstantsExampleErrorTypeJa._(_root);
+}
+
+// Path: example.onboarding
+class _ConstantsExampleOnboardingJa {
+	_ConstantsExampleOnboardingJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	List<dynamic> get pages => [
+		_ConstantsExampleOnboarding$pages$0i0$Ja._(_root),
+		_ConstantsExampleOnboarding$pages$0i1$Ja._(_root),
+	];
+}
+
+// Path: strings.settings
+class _ConstantsStringsSettingsJa {
+	_ConstantsStringsSettingsJa._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -168,9 +268,9 @@ class _ConstantsSettingsJa {
 	String get notification => _root.$meta.d([36893, 30690]);
 }
 
-// Path: error
-class _ConstantsErrorJa {
-	_ConstantsErrorJa._(this._root);
+// Path: strings.error
+class _ConstantsStringsErrorJa {
+	_ConstantsStringsErrorJa._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -178,6 +278,47 @@ class _ConstantsErrorJa {
 	Map<String, String> get codes => {
 		'404': _root.$meta.d([51, 55, 51, 39, 73, 104, 115, 39, 65, 104, 114, 105, 99]),
 	};
+}
+
+// Path: example.game.end
+class _ConstantsExampleGameEndJa {
+	_ConstantsExampleGameEndJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String highScore({required Object score}) => _root.$meta.d([94, 104, 114, 117, 39, 111, 110, 96, 111, 39, 116, 100, 104, 117, 98, 39, 110, 116, 39]) + score.toString() + _root.$meta.d([38]);
+}
+
+// Path: example.error.type
+class _ConstantsExampleErrorTypeJa {
+	_ConstantsExampleErrorTypeJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get warning => _root.$meta.d([83, 111, 110, 116, 39, 110, 116, 39, 102, 39, 112, 102, 117, 105, 110, 105, 96, 39, 106, 98, 116, 116, 102, 96, 98]);
+	String get error => _root.$meta.d([83, 111, 110, 116, 39, 110, 116, 39, 102, 105, 39, 98, 117, 117, 104, 117, 39, 106, 98, 116, 116, 102, 96, 98]);
+}
+
+// Path: example.onboarding.pages.0
+class _ConstantsExampleOnboarding$pages$0i0$Ja {
+	_ConstantsExampleOnboarding$pages$0i0$Ja._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 115, 111, 98, 39, 102, 119, 119, 38]);
+}
+
+// Path: example.onboarding.pages.1
+class _ConstantsExampleOnboarding$pages$0i1$Ja {
+	_ConstantsExampleOnboarding$pages$0i1$Ja._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => _root.$meta.d([79, 104, 112, 39, 115, 104, 39, 96, 98, 115, 39, 116, 115, 102, 117, 115, 98, 99]);
 }
 
 // Path: <root>
@@ -207,14 +348,24 @@ class _ConstantsEn extends Translations {
 	@override late final _ConstantsEn _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get greeting => _root.$meta.d([79, 98, 107, 107, 104, 38]);
-	@override String get welcomeMessage => _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
-	@override late final _ConstantsSettingsEn settings = _ConstantsSettingsEn._(_root);
+	@override late final _ConstantsStringsEn strings = _ConstantsStringsEn._(_root);
 }
 
-// Path: settings
-class _ConstantsSettingsEn extends _ConstantsSettingsJa {
-	_ConstantsSettingsEn._(_ConstantsEn root) : this._root = root, super._(root);
+// Path: strings
+class _ConstantsStringsEn extends _ConstantsStringsJa {
+	_ConstantsStringsEn._(_ConstantsEn root) : this._root = root, super._(root);
+
+	@override final _ConstantsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get greeting => _root.$meta.d([79, 98, 107, 107, 104, 38]);
+	@override String get welcomeMessage => _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
+	@override late final _ConstantsStringsSettingsEn settings = _ConstantsStringsSettingsEn._(_root);
+}
+
+// Path: strings.settings
+class _ConstantsStringsSettingsEn extends _ConstantsStringsSettingsJa {
+	_ConstantsStringsSettingsEn._(_ConstantsEn root) : this._root = root, super._(root);
 
 	@override final _ConstantsEn _root; // ignore: unused_field
 
@@ -230,12 +381,29 @@ class _ConstantsSettingsEn extends _ConstantsSettingsJa {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'greeting': return _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
-			case 'welcomeMessage': return _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
-			case 'settings.language': return _root.$meta.d([35335, 35481]);
-			case 'settings.theme': return _root.$meta.d([12481, 12539, 12505]);
-			case 'settings.notification': return _root.$meta.d([36893, 30690]);
-			case 'error.codes.404': return _root.$meta.d([51, 55, 51, 39, 73, 104, 115, 39, 65, 104, 114, 105, 99]);
+			case 'example.mainScreen.title': return _root.$meta.d([74, 102, 110, 105, 39, 84, 100, 117, 98, 98, 105, 39, 83, 110, 115, 107, 98]);
+			case 'example.game.end.highScore': return ({required Object score}) => _root.$meta.d([94, 104, 114, 117, 39, 111, 110, 96, 111, 39, 116, 100, 104, 117, 98, 39, 110, 116, 39]) + score.toString() + _root.$meta.d([38]);
+			case 'example.items': return ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+				one: _root.$meta.d([94, 104, 114, 39, 111, 102, 113, 98, 39]) + n.toString() + _root.$meta.d([39, 110, 115, 98, 106]),
+				other: _root.$meta.d([94, 104, 114, 39, 111, 102, 113, 98, 39]) + n.toString() + _root.$meta.d([39, 110, 115, 98, 106, 116]),
+			);
+			case 'example.greet.male': return _root.$meta.d([79, 98, 107, 107, 104, 39, 74, 117, 41, 39, 124, 124, 105, 102, 106, 98, 122, 122]);
+			case 'example.greet.female': return _root.$meta.d([79, 98, 107, 107, 104, 39, 74, 116, 41, 39, 124, 124, 105, 102, 106, 98, 122, 122]);
+			case 'example.intro.step.0': return _root.$meta.d([84, 115, 98, 119, 39, 54]);
+			case 'example.intro.step.1': return _root.$meta.d([84, 115, 98, 119, 39, 53]);
+			case 'example.intro.step.2': return _root.$meta.d([84, 115, 98, 119, 39, 52]);
+			case 'example.intro.step.3': return _root.$meta.d([84, 115, 98, 119, 39, 51]);
+			case 'example.intro.step.4': return _root.$meta.d([84, 115, 98, 119, 39, 50]);
+			case 'example.error.type.warning': return _root.$meta.d([83, 111, 110, 116, 39, 110, 116, 39, 102, 39, 112, 102, 117, 105, 110, 105, 96, 39, 106, 98, 116, 116, 102, 96, 98]);
+			case 'example.error.type.error': return _root.$meta.d([83, 111, 110, 116, 39, 110, 116, 39, 102, 105, 39, 98, 117, 117, 104, 117, 39, 106, 98, 116, 116, 102, 96, 98]);
+			case 'example.onboarding.pages.0.title': return _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 115, 111, 98, 39, 102, 119, 119, 38]);
+			case 'example.onboarding.pages.1.title': return _root.$meta.d([79, 104, 112, 39, 115, 104, 39, 96, 98, 115, 39, 116, 115, 102, 117, 115, 98, 99]);
+			case 'strings.greeting': return _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
+			case 'strings.welcomeMessage': return _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
+			case 'strings.settings.language': return _root.$meta.d([35335, 35481]);
+			case 'strings.settings.theme': return _root.$meta.d([12481, 12539, 12505]);
+			case 'strings.settings.notification': return _root.$meta.d([36893, 30690]);
+			case 'strings.error.codes.404': return _root.$meta.d([51, 55, 51, 39, 73, 104, 115, 39, 65, 104, 114, 105, 99]);
 			default: return null;
 		}
 	}
@@ -244,11 +412,11 @@ extension on Translations {
 extension on _ConstantsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'greeting': return _root.$meta.d([79, 98, 107, 107, 104, 38]);
-			case 'welcomeMessage': return _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
-			case 'settings.language': return _root.$meta.d([75, 102, 105, 96, 114, 102, 96, 98]);
-			case 'settings.theme': return _root.$meta.d([83, 111, 98, 106, 98]);
-			case 'settings.notification': return _root.$meta.d([73, 104, 115, 110, 97, 110, 100, 102, 115, 110, 104, 105, 116]);
+			case 'strings.greeting': return _root.$meta.d([79, 98, 107, 107, 104, 38]);
+			case 'strings.welcomeMessage': return _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
+			case 'strings.settings.language': return _root.$meta.d([75, 102, 105, 96, 114, 102, 96, 98]);
+			case 'strings.settings.theme': return _root.$meta.d([83, 111, 98, 106, 98]);
+			case 'strings.settings.notification': return _root.$meta.d([73, 104, 115, 110, 97, 110, 100, 102, 115, 110, 104, 105, 116]);
 			default: return null;
 		}
 	}

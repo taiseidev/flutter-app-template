@@ -1,0 +1,37 @@
+{
+  "mainScreen": {
+    "title": "Main Screen Title"
+  },
+  "game": {
+    "end": {
+      "highScore": "Your high score is $score!"
+    }
+  },
+  "items": {
+    "one": "You have $n item",
+    "other": "You have $n items"
+  },
+  "greet": {
+    "male": "Hello Mr. {{name}}",
+    "female": "Hello Ms. {{name}}"
+  },
+  "intro": {
+    "step": ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"]
+  },
+  "error": {
+    "type": {
+      "WARNING": "This is a warning message",
+      "ERROR": "This is an error message"
+    }
+  },
+  "onboarding": {
+    "pages": [
+      {
+        "title": "Welcome to the app!"
+      },
+      {
+        "title": "How to get started"
+      }
+    ]
+  }
+}
