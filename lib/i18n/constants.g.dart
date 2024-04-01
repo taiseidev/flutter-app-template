@@ -6,27 +6,28 @@
 /// Locales: 2
 /// Strings: 11 (5 per locale)
 ///
-/// Built on 2024-04-01 at 10:42 UTC
+/// Built on 2024-04-01 at 10:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
 
 import 'package:flutter/widgets.dart';
+import 'package:slang/api/secret.dart';
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
-const AppLocale _baseLocale = AppLocale.en;
+const AppLocale _baseLocale = AppLocale.ja;
 
 /// Supported locales, see extension methods below.
 ///
 /// Usage:
-/// - LocaleSettings.setLocale(AppLocale.en) // set locale
-/// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
-/// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
+/// - LocaleSettings.setLocale(AppLocale.ja) // set locale
+/// - Locale locale = AppLocale.ja.flutterLocale // get flutter locale from enum
+/// - if (LocaleSettings.currentLocale == AppLocale.ja) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
-	en(languageCode: 'en', build: Translations.build),
-	ja(languageCode: 'ja', build: _StringsJa.build);
+	ja(languageCode: 'ja', build: Translations.build),
+	en(languageCode: 'en', build: _ConstantsEn.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
@@ -42,13 +43,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 /// Method A: Simple
 ///
 /// No rebuild after locale change.
-/// Translation happens during initialization of the widget (call of t).
+/// Translation happens during initialization of the widget (call of constants).
 /// Configurable via 'translate_var'.
 ///
 /// Usage:
-/// String a = t.someKey.anotherKey;
-/// String b = t['someKey.anotherKey']; // Only for edge cases!
-Translations get t => LocaleSettings.instance.currentTranslations;
+/// String a = constants.someKey.anotherKey;
+/// String b = constants['someKey.anotherKey']; // Only for edge cases!
+Translations get constants => LocaleSettings.instance.currentTranslations;
 
 /// Method B: Advanced
 ///
@@ -62,9 +63,9 @@ Translations get t => LocaleSettings.instance.currentTranslations;
 /// );
 ///
 /// Step 2:
-/// final t = Translations.of(context); // Get t variable.
-/// String a = t.someKey.anotherKey; // Use t variable.
-/// String b = t['someKey.anotherKey']; // Only for edge cases!
+/// final constants = Translations.of(context); // Get constants variable.
+/// String a = constants.someKey.anotherKey; // Use constants variable.
+/// String b = constants['someKey.anotherKey']; // Only for edge cases!
 class TranslationProvider extends BaseTranslationProvider<AppLocale, Translations> {
 	TranslationProvider({required super.child}) : super(settings: LocaleSettings.instance);
 
@@ -75,9 +76,9 @@ class TranslationProvider extends BaseTranslationProvider<AppLocale, Translation
 /// Configurable via 'translate_var'.
 ///
 /// Usage (e.g. in a widget's build method):
-/// context.t.someKey.anotherKey
+/// context.constants.someKey.anotherKey
 extension BuildContextTranslationsExtension on BuildContext {
-	Translations get t => TranslationProvider.of(this).translations;
+	Translations get constants => TranslationProvider.of(this).translations;
 }
 
 /// Manages all translation instances and the current locale
@@ -123,7 +124,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	/// Returns the current translations of the given [context].
 	///
 	/// Usage:
-	/// final t = Translations.of(context);
+	/// final constants = Translations.of(context);
 	static Translations of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context).translations;
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -131,51 +132,11 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	Translations.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.en,
-		    overrides: overrides ?? {},
-		    cardinalResolver: cardinalResolver,
-		    ordinalResolver: ordinalResolver,
-		  ) {
-		$meta.setFlatMapFunction(_flatMapFunction);
-	}
-
-	/// Metadata for the translations of <en>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
-
-	/// Access flat map
-	dynamic operator[](String key) => $meta.getTranslation(key);
-
-	late final Translations _root = this; // ignore: unused_field
-
-	// Translations
-	String get greeting => 'Hello!';
-	String get welcomeMessage => 'Welcome to our application.';
-	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
-}
-
-// Path: settings
-class _StringsSettingsEn {
-	_StringsSettingsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get language => 'Language';
-	String get theme => 'Theme';
-	String get notification => 'Notifications';
-}
-
-// Path: <root>
-class _StringsJa implements Translations {
-	/// You can call this constructor and build your own translation instance of this locale.
-	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsJa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
-		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
 		    locale: AppLocale.ja,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
+		    s: $calc0(2, 7, 23),
 		  ) {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
@@ -184,47 +145,83 @@ class _StringsJa implements Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key);
+	dynamic operator[](String key) => $meta.getTranslation(key);
 
-	@override late final _StringsJa _root = this; // ignore: unused_field
+	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get greeting => 'こんにちは!';
-	@override String get welcomeMessage => '私たちのアプリケーションへようこそ';
-	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
-	@override late final _StringsErrorJa error = _StringsErrorJa._(_root);
+	String get greeting => _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
+	String get welcomeMessage => _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
+	late final _ConstantsSettingsJa settings = _ConstantsSettingsJa._(_root);
+	late final _ConstantsErrorJa error = _ConstantsErrorJa._(_root);
 }
 
 // Path: settings
-class _StringsSettingsJa implements _StringsSettingsEn {
-	_StringsSettingsJa._(this._root);
+class _ConstantsSettingsJa {
+	_ConstantsSettingsJa._(this._root);
 
-	@override final _StringsJa _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
-	@override String get language => '言語';
-	@override String get theme => 'テーマ';
-	@override String get notification => '通知';
+	String get language => _root.$meta.d([35335, 35481]);
+	String get theme => _root.$meta.d([12481, 12539, 12505]);
+	String get notification => _root.$meta.d([36893, 30690]);
 }
 
 // Path: error
-class _StringsErrorJa implements _StringsErrorEn {
-	_StringsErrorJa._(this._root);
+class _ConstantsErrorJa {
+	_ConstantsErrorJa._(this._root);
 
-	@override final _StringsJa _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsErrorCodesJa codes = _StringsErrorCodesJa._(_root);
+	Map<String, String> get codes => {
+		'404': _root.$meta.d([51, 55, 51, 39, 73, 104, 115, 39, 65, 104, 114, 105, 99]),
+	};
 }
 
-// Path: error.codes
-class _StringsErrorCodesJa implements _StringsErrorCodesEn {
-	_StringsErrorCodesJa._(this._root);
+// Path: <root>
+class _ConstantsEn extends Translations {
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_ConstantsEn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.en,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		    s: $calc1(7, 0, 54),
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		super.$meta.setFlatMapFunction($meta.getTranslation); // copy base translations to super.$meta
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
 
-	@override final _StringsJa _root; // ignore: unused_field
+	/// Metadata for the translations of <en>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _ConstantsEn _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get 404 => '404 Not Found';
+	@override String get greeting => _root.$meta.d([79, 98, 107, 107, 104, 38]);
+	@override String get welcomeMessage => _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
+	@override late final _ConstantsSettingsEn settings = _ConstantsSettingsEn._(_root);
+}
+
+// Path: settings
+class _ConstantsSettingsEn extends _ConstantsSettingsJa {
+	_ConstantsSettingsEn._(_ConstantsEn root) : this._root = root, super._(root);
+
+	@override final _ConstantsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get language => _root.$meta.d([75, 102, 105, 96, 114, 102, 96, 98]);
+	@override String get theme => _root.$meta.d([83, 111, 98, 106, 98]);
+	@override String get notification => _root.$meta.d([73, 104, 115, 110, 97, 110, 100, 102, 115, 110, 104, 105, 116]);
 }
 
 /// Flat map(s) containing all translations.
@@ -233,25 +230,25 @@ class _StringsErrorCodesJa implements _StringsErrorCodesEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'greeting': return 'Hello!';
-			case 'welcomeMessage': return 'Welcome to our application.';
-			case 'settings.language': return 'Language';
-			case 'settings.theme': return 'Theme';
-			case 'settings.notification': return 'Notifications';
+			case 'greeting': return _root.$meta.d([12372, 12436, 12396, 12390, 12392, 38]);
+			case 'welcomeMessage': return _root.$meta.d([31174, 12376, 12390, 12393, 12453, 12496, 12525, 12470, 12539, 12464, 12512, 12532, 12415, 12431, 12353, 12372, 12378]);
+			case 'settings.language': return _root.$meta.d([35335, 35481]);
+			case 'settings.theme': return _root.$meta.d([12481, 12539, 12505]);
+			case 'settings.notification': return _root.$meta.d([36893, 30690]);
+			case 'error.codes.404': return _root.$meta.d([51, 55, 51, 39, 73, 104, 115, 39, 65, 104, 114, 105, 99]);
 			default: return null;
 		}
 	}
 }
 
-extension on _StringsJa {
+extension on _ConstantsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'greeting': return 'こんにちは!';
-			case 'welcomeMessage': return '私たちのアプリケーションへようこそ';
-			case 'settings.language': return '言語';
-			case 'settings.theme': return 'テーマ';
-			case 'settings.notification': return '通知';
-			case 'error.codes.404': return '404 Not Found';
+			case 'greeting': return _root.$meta.d([79, 98, 107, 107, 104, 38]);
+			case 'welcomeMessage': return _root.$meta.d([80, 98, 107, 100, 104, 106, 98, 39, 115, 104, 39, 104, 114, 117, 39, 102, 119, 119, 107, 110, 100, 102, 115, 110, 104, 105, 41]);
+			case 'settings.language': return _root.$meta.d([75, 102, 105, 96, 114, 102, 96, 98]);
+			case 'settings.theme': return _root.$meta.d([83, 111, 98, 106, 98]);
+			case 'settings.notification': return _root.$meta.d([73, 104, 115, 110, 97, 110, 100, 102, 115, 110, 104, 105, 116]);
 			default: return null;
 		}
 	}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'i18n/strings.g.dart';
+import 'i18n/constants.g.dart';
 import 'presentation/res/theme/theme.dart';
 import 'presentation/router/router.dart';
 import 'providers/loading_notifier.dart';

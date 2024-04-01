@@ -19,7 +19,7 @@ import 'data/remote/api/post_api_client.dart';
 import 'data/remote/dio.dart';
 import 'data/remote/repositories/comment/comment_repository.dart';
 import 'data/remote/repositories/post/post_repository.dart';
-import 'i18n/strings.g.dart';
+import 'i18n/constants.g.dart';
 import 'providers/api/i_comment_repository_provider.dart';
 import 'providers/api/i_post_repository_provider.dart';
 

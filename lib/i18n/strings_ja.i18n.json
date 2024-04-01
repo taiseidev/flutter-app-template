@@ -1,9 +1,14 @@
 {
-    "greeting": "こんにちは!",
-    "welcomeMessage": "私たちのアプリケーションへようこそ",
-    "settings": {
-        "language": "言語",
-        "theme": "テーマ",
-        "notification": "通知"
+  "greeting": "こんにちは!",
+  "welcomeMessage": "私たちのアプリケーションへようこそ",
+  "settings": {
+    "language": "言語",
+    "theme": "テーマ",
+    "notification": "通知"
+  },
+  "error": {
+    "codes": {
+      "404": "404 Not Found"
     }
+  }
 }
