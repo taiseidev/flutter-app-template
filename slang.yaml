@@ -1,0 +1,57 @@
+base_locale: ja
+fallback_strategy: base_locale
+input_directory: lib/i18n
+input_file_pattern: .i18n.json
+output_directory: lib/i18n
+output_file_name: constants.g.dart
+output_format: single_file
+locale_handling: true
+flutter_integration: true
+namespaces: false
+translate_var: constants
+enum_name: AppLocale
+class_name: Translations
+translation_class_visibility: private
+key_case: camel
+key_map_case: camel
+param_case: camel
+timestamp: true
+statistics: true
+maps:
+  # ステータスコードを受け取って動的に文言を取得
+  - error.codes
+# pluralization設定は、数に応じた適切な翻訳を選択するための設定。
+# auto: cardinal - 数詞に基づいた複数形の自動検出を有効にする。
+# default_parameter: n - 複数形の数を指定するデフォルトのパラメータ名を設定する。
+# cardinal - 数詞に基づいた複数形の設定。例えば、アイテムの数が異なる場合に使用される。
+#   - someKey.apple - 'apple'キーの複数形の翻訳を提供する場合に指定する。
+# ordinal - 順序数に基づいた複数形の設定。例えば、何番目かを示す状況で使用される。
+#   - someKey.place - 'place'キーの順序数の翻訳を提供する場合に指定する。
+# pluralization:
+#   auto: cardinal
+#   default_parameter: n
+#   cardinal:
+#     - someKey.apple
+#   ordinal:
+#     - someKey.place
+# contexts:
+#   gender_context:
+#     enum:
+#       - male
+#       - female
+#     paths:
+#       - my.path.to.greet
+#     default_parameter: gender
+#     generate_enum: true
+# interfaces:
+#   PageData: onboarding.pages.*
+#   PageData2:
+#     paths:
+#       - my.path
+#       - cool.pages.*
+#     attributes:
+#       - String title
+#       - String? content
+obfuscation:
+  enabled: true
+  secret: key
